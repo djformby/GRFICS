@@ -85,7 +85,7 @@ select opt in $OPTIONS; do
 		cp ./core_builders/build_modbus.sh ../build_core.sh
 		echo [LIBMODBUS]
 		cd ..
-		cd libmodbus_src
+		cd libmodbus-3.0.4
 		./autogen.sh
 		./configure
 		sudo make install
