@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AdvancedHMI", "AdvancedHMI\AdvancedHMI.vbproj", "{13A180B0-1183-4CB7-AC14-BF98320A30E4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AdvancedHMIDrivers", "AdvancedHMIDrivers\AdvancedHMIDrivers.vbproj", "{1C35364C-105A-4537-9CA1-0FB0DC656944}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AdvancedHMIControls", "AdvancedHMIControls\AdvancedHMIControls.vbproj", "{928F9169-93D6-4E5F-8130-C8B1F4D3CC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedHMIcs", "AdvancedHMICS\AdvancedHMIcs.csproj", "{6D7FE5B1-EF17-4966-AA84-77A5DBD1C40E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13A180B0-1183-4CB7-AC14-BF98320A30E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A180B0-1183-4CB7-AC14-BF98320A30E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A180B0-1183-4CB7-AC14-BF98320A30E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A180B0-1183-4CB7-AC14-BF98320A30E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C35364C-105A-4537-9CA1-0FB0DC656944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C35364C-105A-4537-9CA1-0FB0DC656944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C35364C-105A-4537-9CA1-0FB0DC656944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C35364C-105A-4537-9CA1-0FB0DC656944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{928F9169-93D6-4E5F-8130-C8B1F4D3CC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928F9169-93D6-4E5F-8130-C8B1F4D3CC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{928F9169-93D6-4E5F-8130-C8B1F4D3CC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{928F9169-93D6-4E5F-8130-C8B1F4D3CC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7FE5B1-EF17-4966-AA84-77A5DBD1C40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7FE5B1-EF17-4966-AA84-77A5DBD1C40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7FE5B1-EF17-4966-AA84-77A5DBD1C40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7FE5B1-EF17-4966-AA84-77A5DBD1C40E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

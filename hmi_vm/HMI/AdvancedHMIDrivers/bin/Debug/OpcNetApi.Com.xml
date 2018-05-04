@@ -1,0 +1,3731 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpcNetApi.Com</name>
+    </assembly>
+    <members>
+        <member name="T:OpcCom.ServerEnumerator">
+            <summary>
+            A unique identifier for the result of an operation of an item.
+            </summary>
+        </member>
+        <member name="F:OpcCom.ServerEnumerator.ProgID">
+            <summary>
+            The ProgID for the OPC Server Enumerator.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ServerEnumerator.Dispose">
+            <summary>
+            Frees all unmanaged resources
+            </summary>
+        </member>
+        <member name="M:OpcCom.ServerEnumerator.EnumerateHosts">
+            <summary>
+            Enumerates hosts that may be accessed for server discovery.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ServerEnumerator.GetAvailableServers(Opc.Specification)">
+            <summary>
+            Returns a list of servers that support the specified interface specification.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ServerEnumerator.GetAvailableServers(Opc.Specification,System.String,Opc.ConnectData)">
+            <summary>
+            Returns a list of servers that support the specified specification on the specified host.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ServerEnumerator.CLSIDFromProgID(System.String,System.String,Opc.ConnectData)">
+            <summary>
+            Looks up the CLSID for the specified prog id on a remote host.
+            </summary>
+        </member>
+        <member name="F:OpcCom.ServerEnumerator.m_server">
+            <summary>
+            The server enumerator COM server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.ServerEnumerator.m_host">
+            <summary>
+            The host where the servers are being enumerated.
+            </summary>
+        </member>
+        <member name="F:OpcCom.ServerEnumerator.CLSID">
+            <summary>
+            The CLSID for the OPC Server Enumerator.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ServerEnumerator.ReadClasses(OpcRcw.Comn.IOPCEnumGUID)">
+            <summary>
+            Reads the guids from the enumerator.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ServerEnumerator.CreateUrl(Opc.Specification,System.Guid)">
+            <summary>
+            Reads the server details from the enumerator.
+            </summary>
+        </member>
+        <member name="T:OpcCom.EnumString">
+            <summary>
+            A wrapper for the COM IEnumString interface.
+            </summary>
+        </member>
+        <member name="F:OpcCom.EnumString.m_enumerator">
+            <summary>
+            A reference to the remote COM object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumString.#ctor(System.Object)">
+            <summary>
+            Initializes the object with an enumerator.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumString.Dispose">
+            <summary>
+            Releases the remote COM object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumString.Next(System.Int32)">
+            <summary>
+            Fetches the next group of strings. 
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumString.Skip(System.Int32)">
+            <summary>
+            Skips a number of strings.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumString.Reset">
+            <summary>
+            Sets pointer to the start of the list.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumString.Clone">
+            <summary>
+            Clones the enumerator.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Hda.Request">
+            <summary>
+            An object that mainatains the state of asynchronous requests.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.#ctor(System.Object,System.Delegate,System.Int32)">
+            <summary>
+            Initializes the object with all required information.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.Update(System.Int32,Opc.ItemIdentifier[])">
+            <summary>
+            Updates the request with the initial results.  
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.InvokeCallback(System.Object)">
+            <summary>
+            Invokes the callback for the request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.OnCancelComplete">
+            <summary>
+            Called when the server acknowledges that a request was cancelled. 
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.InvokeCallback(Opc.Hda.DataUpdateEventHandler,System.Object)">
+            <summary>
+            Invokes callback for a data change update.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.InvokeCallback(Opc.Hda.ReadValuesEventHandler,System.Object)">
+            <summary>
+            Invokes callback for a read request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.InvokeCallback(Opc.Hda.ReadAttributesEventHandler,System.Object)">
+            <summary>
+            Invokes callback for a read attributes request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.InvokeCallback(Opc.Hda.ReadAnnotationsEventHandler,System.Object)">
+            <summary>
+            Invokes callback for a read annotations request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.InvokeCallback(Opc.Hda.UpdateCompleteEventHandler,System.Object)">
+            <summary>
+            Invokes callback for a read annotations request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Request.UpdateResults(Opc.ItemIdentifier[])">
+            <summary>
+            Updates the result objects with locally cached information.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.Request.RequestID">
+            <summary>
+            The unique id assigned to the request when it was created.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.Request.CancelID">
+            <summary>
+            The unqiue id assigned by the server when it was created.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Hda.Request.CancelComplete">
+            <summary>
+            Fired when the server acknowledges that a request was cancelled.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.Request.Handle">
+            <summary>
+            An unique identifier, assigned by the client, for the request.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.Request.StartTime">
+            <summary>
+            The actual start time used by a server while processing a request.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.Request.EndTime">
+            <summary>
+            The actual end time used by a server while processing a request.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da20.Subscription">
+            <summary>
+            An in-process wrapper for a remote OPC Data Access 2.0X group.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Subscription">
+            <summary>
+            A .NET wrapper for a COM server that implements the DA group interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.#ctor(System.Object,Opc.Da.SubscriptionState,System.Int32)">
+            <summary>
+            Initializes a new instance of a subscription.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Finalize">
+            <summary>
+            The finalizer.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Dispose">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_group">
+            <summary>
+            The COM server for the group object.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_connection">
+            <summary>
+            A connect point with the COM server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_callback">
+            <summary>
+            The internal object that implements the IOPCDataCallback interface.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_name">
+            <summary>
+            The name of the group on the server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_handle">
+            <summary>
+            A handle assigned by the client for the subscription.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_filters">
+            <summary>
+            The default result filters for the subscription.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_items">
+            <summary>
+            A table of all item identifers which are indexed by internal handle.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.m_counter">
+            <summary>
+            A counter used to assign unique internal client handles.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.GetResultFilters">
+            <summary>
+            Returns the filters applied by the server to any item results returned to the client.
+            </summary>
+            <returns>A bit mask indicating which fields should be returned in any item results.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.SetResultFilters(System.Int32)">
+            <summary>
+            Sets the filters applied by the server to any item results returned to the client.
+            </summary>
+            <param name="filters">A bit mask indicating which fields should be returned in any item results.</param>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.GetState">
+            <summary>
+            Returns the current state of the subscription.
+            </summary>
+            <returns>The current state of the subscription.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ModifyState(System.Int32,Opc.Da.SubscriptionState)">
+            <summary>
+            Changes the state of a subscription.
+            </summary>
+            <param name="masks">A bit mask that indicates which elements of the subscription state are changing.</param>
+            <param name="state">The new subscription state.</param>
+            <returns>The actual subscption state after applying the changes.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.AddItems(Opc.Da.Item[])">
+            <summary>
+            Adds items to the subscription.
+            </summary>
+            <param name="items">The set of items to add to the subscription.</param>
+            <returns>The results of the add item operation for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ModifyItems(System.Int32,Opc.Da.Item[])">
+            <summary>
+            Modifies the state of items in the subscription
+            </summary>
+            <param name="masks">Specifies which item state parameters are being modified.</param>
+            <param name="items">The new state for each item.</param>
+            <returns>The results of the modify item operation for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.RemoveItems(Opc.ItemIdentifier[])">
+            <summary>
+            Removes items from the subscription.
+            </summary>
+            <param name="items">The identifiers (i.e. server handles) for the items being removed.</param>
+            <returns>The results of the remove item operation for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Read(Opc.Da.Item[])">
+            <summary>
+            Reads the values for a set of items in the subscription.
+            </summary>
+            <param name="items">The identifiers (i.e. server handles) for the items being read.</param>
+            <returns>The value for each of items.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Write(Opc.Da.ItemValue[])">
+            <summary>
+            Writes the value, quality and timestamp for a set of items in the subscription.
+            </summary>
+            <param name="items">The item values to write.</param>
+            <returns>The results of the write operation for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Read(Opc.Da.Item[],System.Object,Opc.Da.ReadCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Begins an asynchronous read operation for a set of items.
+            </summary>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Write(Opc.Da.ItemValue[],System.Object,Opc.Da.WriteCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Begins an asynchronous write operation for a set of items.
+            </summary>
+            <param name="items">The set of item values to write (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Cancel(Opc.IRequest,Opc.Da.CancelCompleteEventHandler)">
+            <summary>
+            Cancels an asynchronous read or write operation.
+            </summary>
+            <param name="request">The object returned from the BeginRead or BeginWrite request.</param>
+            <param name="callback">The function to invoke when the cancel completes.</param>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Refresh">
+            <summary>
+            Causes the server to send a data changed notification for all active items. 
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Refresh(System.Object,Opc.IRequest@)">
+            <summary>
+            Causes the server to send a data changed notification for all active items. 
+            </summary>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.SetEnabled(System.Boolean)">
+            <summary>
+            Enables or disables data change notifications from the server.
+            </summary>
+            <param name="enabled">Whether data change notifications are enabled.</param>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.GetEnabled">
+            <summary>
+            Checks whether data change notifications from the server are enabled.
+            </summary>
+            <returns>Whether data change notifications are enabled.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Read(Opc.ItemIdentifier[],Opc.Da.Item[])">
+            <summary>
+            Reads a set of items using DA3.0 interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Write(Opc.ItemIdentifier[],Opc.Da.ItemValue[])">
+            <summary>
+            Writes a set of items using DA3.0 interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.BeginRead(Opc.ItemIdentifier[],Opc.Da.Item[],System.Int32,System.Int32@)">
+            <summary>
+            Begins an asynchronous read of a set of items using DA3.0 interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.BeginWrite(Opc.ItemIdentifier[],Opc.Da.ItemValue[],System.Int32,System.Int32@)">
+            <summary>
+            Begins an asynchronous write for a set of items using DA3.0 interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.SetReqTypes(Opc.Da.ItemResult[])">
+            <summary>
+            Sets the requested data type for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.SetActive(Opc.Da.ItemResult[],System.Boolean)">
+            <summary>
+            Sets the active state for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.UpdateActive(Opc.Da.ItemResult[])">
+            <summary>
+            Update the active state for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.SetDeadbands(Opc.Da.ItemResult[])">
+            <summary>
+            Sets the deadbands for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ClearDeadbands(Opc.Da.ItemResult[])">
+            <summary>
+            Clears the deadbands for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.UpdateDeadbands(Opc.Da.ItemResult[])">
+            <summary>
+            Update the deadbands for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.SetSamplingRates(Opc.Da.ItemResult[])">
+            <summary>
+            Sets the sampling rates for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ClearSamplingRates(Opc.Da.ItemResult[])">
+            <summary>
+            Clears the sampling rates for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.UpdateSamplingRates(Opc.Da.ItemResult[])">
+            <summary>
+            Update the sampling rates for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.SetEnableBuffering(Opc.Da.ItemResult[])">
+            <summary>
+            Sets the enable buffering flags.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Advise">
+            <summary>
+            Establishes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Unadvise">
+            <summary>
+            Closes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Da.Subscription.DataChanged">
+            <summary>
+            An event to receive data change updates.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Subscription.ItemTable">
+            <summary>
+            A table of item identifiers indexed by internal handle.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ItemTable.GetInvalidHandle">
+            <summary>
+            Returns a server handle that must be treated as invalid by the server,
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ItemTable.GetItemIDs(Opc.ItemIdentifier[])">
+            <summary>
+            Copies a set of items an substitutes the client and server handles for use by the server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ItemTable.CreateItems(Opc.Da.Item[])">
+            <summary>
+            Creates a item result list from a set of items and sets the handles for use by the server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.ItemTable.ApplyFilters(System.Int32,Opc.ItemIdentifier[])">
+            <summary>
+            Updates a result list based on the request options and sets the handles for use by the client.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.ItemTable.m_items">
+            <summary>
+            The table of known item identifiers.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Da.Subscription.ItemTable.Item(System.Object)">
+            <summary>
+            Looks up an item identifier for the specified internal handle.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Subscription.Callback">
+            <summary>
+            A class that implements the IOPCDataCallback interface.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Callback.#ctor(System.Object,System.Int32,OpcCom.Da.Subscription.ItemTable)">
+            <summary>
+            Initializes the object with the containing subscription object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Callback.SetFilters(System.Object,System.Int32)">
+            <summary>
+            Updates the result filters and subscription handle.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Callback.BeginRequest(OpcCom.Da.Request)">
+            <summary>
+            Adds an asynchrounous request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Callback.CancelRequest(OpcCom.Da.Request)">
+            <summary>
+            Returns true is an asynchrounous request can be cancelled.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Callback.EndRequest(OpcCom.Da.Request)">
+            <summary>
+            Remvoes an asynchrounous request.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.Callback.m_handle">
+            <summary>
+            The handle to return with any callbacks. 
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.Callback.m_filters">
+            <summary>
+            The current request options for the subscription.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.Callback.m_items">
+            <summary>
+            A table of item identifiers indexed by internal handle.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Subscription.Callback.m_requests">
+            <summary>
+            A table of autstanding asynchronous requests.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Callback.OnDataChange(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32[],System.Object[],System.Int16[],OpcRcw.Da.FILETIME[],System.Int32[])">
+            <summary>
+            Called when a data changed event is received.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Subscription.Callback.UnmarshalValues(System.Int32,System.Int32[],System.Object[],System.Int16[],OpcRcw.Da.FILETIME[],System.Int32[])">
+            <summary>
+            Creates an array of item value result objects from the callback data.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Da.Subscription.Callback.DataChanged">
+            <summary>
+            Raised when data changed callbacks arrive.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Da.Subscription.Callback.m_dataChanged">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.#ctor(System.Object,Opc.Da.SubscriptionState,System.Int32)">
+            <summary>
+            Initializes a new instance of a subscription.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.Refresh">
+            <summary>
+            Tells the server to send an data change update for all subscription items containing the cached values. 
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.SetEnabled(System.Boolean)">
+            <summary>
+            Sets whether data change callbacks are enabled.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.GetEnabled">
+            <summary>
+            Gets whether data change callbacks are enabled.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.Read(Opc.ItemIdentifier[],Opc.Da.Item[])">
+            <summary>
+            Reads a set of items using DA2.0 interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.Read(Opc.Da.ItemValueResult[],System.Boolean)">
+            <summary>
+            Reads a set of values.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.Write(Opc.ItemIdentifier[],Opc.Da.ItemValue[])">
+            <summary>
+            Writes a set of items using DA2.0 interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.BeginRead(Opc.ItemIdentifier[],Opc.Da.Item[],System.Int32,System.Int32@)">
+            <summary>
+            Begins an asynchronous read of a set of items using DA2.0 interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Subscription.BeginWrite(Opc.ItemIdentifier[],Opc.Da.ItemValue[],System.Int32,System.Int32@)">
+            <summary>
+            Begins an asynchronous write for a set of items using DA2.0 interfaces.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Ae.Subscription">
+            <summary>
+            A .NET wrapper for a COM server that implements the AE subscription interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.#ctor(Opc.Ae.SubscriptionState,System.Object)">
+            <summary>
+            Initializes the object with the specified URL and COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Finalize">
+            <summary>
+            The finalizer.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Dispose">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.GetState">
+            <summary>
+            Returns the current state of the subscription.
+            </summary>
+            <returns>The current state of the subscription.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.ModifyState(System.Int32,Opc.Ae.SubscriptionState)">
+            <summary>
+            Changes the state of a subscription.
+            </summary>
+            <param name="masks">A bit mask that indicates which elements of the subscription state are changing.</param>
+            <param name="state">The new subscription state.</param>
+            <returns>The actual subscption state after applying the changes.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.GetFilters">
+            <summary>
+            Returns the current filters for the subscription.
+            </summary>
+            <returns>The current filters for the subscription.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.SetFilters(Opc.Ae.SubscriptionFilters)">
+            <summary>
+            Sets the current filters for the subscription.
+            </summary>
+            <param name="filters">The new filters to use for the subscription.</param>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.GetReturnedAttributes(System.Int32)">
+            <summary>
+            Returns the set of attributes to return with event notifications.
+            </summary>
+            <returns>The set of attributes to returned with event notifications.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.SelectReturnedAttributes(System.Int32,System.Int32[])">
+            <summary>
+            Selects the set of attributes to return with event notifications.
+            </summary>
+            <param name="eventCategory">The specific event category for which the attributes apply.</param>
+            <param name="attributeIDs">The list of attribute ids to return.</param>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Refresh">
+            <summary>
+            Force a refresh for all active conditions and inactive, unacknowledged conditions whose event notifications match the filter of the event subscription.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.CancelRefresh">
+            <summary>
+            Cancels an outstanding refresh request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Advise">
+            <summary>
+            Establishes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Unadvise">
+            <summary>
+            Closes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Ae.Subscription.EventChanged">
+            <summary>
+            An event to receive data change updates.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Ae.Subscription.Callback">
+            <summary>
+            A class that implements the IOPCEventSink interface.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Callback.#ctor(System.Object)">
+            <summary>
+            Initializes the object with the containing subscription object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Subscription.Callback.OnEvent(System.Int32,System.Int32,System.Int32,System.Int32,OpcRcw.Ae.ONEVENTSTRUCT[])">
+            <summary>
+            Called when a data changed event is received.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Ae.Subscription.Callback.EventChanged">
+            <summary>
+            Raised when data changed callbacks arrive.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Interop">
+            <summary>
+            Exposes WIN32 and COM API functions.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Interop.LOCALE_SYSTEM_DEFAULT">
+            <summary>
+            The constant used to selected the default locale.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.EnumComputers">
+            <summary>
+            Enumerates computers on the local network.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetSystemMessage(System.Int32)">
+            <summary>
+            Retrieves the system message text for the specified error.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetComputerName">
+            <summary>
+            Retrieves the name of the local computer.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.InitializeSecurity">
+            <summary>
+            Initializes COM security.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.CreateInstance(System.Guid,System.String,System.Net.NetworkCredential)">
+            <summary>
+            Creates an instance of a COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.CreateInstanceWithLicenseKey(System.Guid,System.String,System.Net.NetworkCredential,System.String)">
+            <summary>
+            Creates an instance of a COM server using the specified license key.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetInt32s(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and frees an array of 32 bit integers.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetInt32s(System.Int32[])">
+            <summary>
+            Allocates and marshals an array of 32 bit integers.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetInt16s(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and frees a array of 16 bit integers.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetInt16s(System.Int16[])">
+            <summary>
+            Allocates and marshals an array of 16 bit integers.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetUnicodeStrings(System.String[])">
+            <summary>
+            Marshals an array of strings into a unmanaged memory buffer
+            </summary>
+            <param name="values">The array of strings to marshal</param>
+            <returns>The pointer to the unmanaged memory buffer</returns>
+        </member>
+        <member name="M:OpcCom.Interop.GetUnicodeStrings(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and frees a array of unicode strings.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetFILETIME(System.DateTime)">
+            <summary>
+            Marshals a DateTime as a WIN32 FILETIME.
+            </summary>
+            <param name="datetime">The DateTime object to marshal</param>
+            <returns>The WIN32 FILETIME</returns>
+        </member>
+        <member name="M:OpcCom.Interop.GetFILETIME(System.IntPtr)">
+            <summary>
+            Unmarshals a WIN32 FILETIME from a pointer.
+            </summary>
+            <param name="pFiletime">A pointer to a FILETIME structure.</param>
+            <returns>A DateTime object.</returns>
+        </member>
+        <member name="M:OpcCom.Interop.GetFILETIME(System.Runtime.InteropServices.FILETIME)">
+            <summary>
+            Unmarshals a WIN32 FILETIME.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetFILETIMEs(System.DateTime[])">
+            <summary>
+            Marshals an array of DateTimes into an unmanaged array of FILETIMEs
+            </summary>
+            <param name="datetimes">The array of DateTimes to marshal</param>
+            <returns>The IntPtr array of FILETIMEs</returns>
+        </member>
+        <member name="M:OpcCom.Interop.GetFILETIMEs(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals an array of WIN32 FILETIMEs as DateTimes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetGUIDs(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals an array of WIN32 GUIDs as Guid.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.VariantClear(System.IntPtr)">
+            <summary>
+            Frees all memory referenced by a VARIANT stored in unmanaged memory.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetVARIANT(System.Object)">
+            <summary>
+            Converts an object into a value that can be marshalled to a VARIANT.
+            </summary>
+            <param name="source">The object to convert.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:OpcCom.Interop.GetVARIANTs(System.Object[],System.Boolean)">
+            <summary>
+            Marshals an array objects into an unmanaged array of VARIANTs.
+            </summary>
+            <param name="values">An array of the objects to be marshalled</param>
+            <param name="preprocess">Whether the objects should have troublesome types removed before marhalling.</param>
+            <returns>An pointer to the array in unmanaged memory</returns>
+        </member>
+        <member name="M:OpcCom.Interop.GetVARIANTs(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals an array of VARIANTs as objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetLocale(System.Int32)">
+            <summary>
+            Converts a LCID to a Locale string.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetLocale(System.String)">
+            <summary>
+            Converts a Locale string to a LCID.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetType(System.Runtime.InteropServices.VarEnum)">
+            <summary>
+            Converts the VARTYPE to a system type.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetType(System.Type)">
+            <summary>
+            Converts the system type to a VARTYPE.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetResultID(System.Int32)">
+            <summary>
+            Converts the HRESULT to a system type.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.GetResultID(Opc.ResultID)">
+            <summary>
+            Converts a result id to an HRESULT.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.CreateException(System.String,System.Exception)">
+            <summary>
+            Returns an exception after extracting HRESULT from the exception.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.CreateException(System.String,System.Int32)">
+            <summary>
+            Returns an exception after extracting HRESULT from the exception.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.ReleaseServer(System.Object)">
+            <summary>
+            Releases the server if it is a true COM server.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Interop.PreserveUTC">
+            <summary>
+            This flag supresses the conversion to local time done during marhsalling.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Interop.VARIANT_SIZE">
+            <summary>
+            The size, in bytes, of a VARIANT structure.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Interop.ServerInfo">
+            <summary>
+            A class used to allocate and deallocate the elements of a COSERVERINFO structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.ServerInfo.Allocate(System.String,System.Net.NetworkCredential)">
+            <summary>
+            Allocates a COSERVERINFO structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Interop.ServerInfo.Deallocate">
+            <summary>
+            Deallocated memory allocated when the COSERVERINFO structure was created.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Interop.GUID">
+            <summary>
+            WIN32 GUID struct declaration.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Hda.Interop">
+            <summary>
+            Contains state information for a single asynchronous OpcCom.Da.Interop.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.Convert(System.Runtime.InteropServices.FILETIME)">
+            <summary>
+            Converts a standard FILETIME to an OpcRcw.Da.FILETIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.Convert(OpcRcw.Hda.OPCHDA_FILETIME)">
+            <summary>
+            Converts an OpcRcw.Da.FILETIME to a standard FILETIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetFILETIME(System.Decimal)">
+            <summary>
+            Converts a decimal value to a OpcRcw.Hda.OPCHDA_TIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetFILETIMEs(System.DateTime[])">
+            <summary>
+            Returns an array of FILETIMEs.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetTime(Opc.Hda.Time)">
+            <summary>
+            Converts a Opc.Hda.Time object to a OpcRcw.Hda.OPCHDA_TIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetItemValueCollections(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an array of OPCHDA_ITEM structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetItemValueCollection(System.IntPtr,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_ITEM structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetItemValueCollection(OpcRcw.Hda.OPCHDA_ITEM,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_ITEM structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetModifiedValueCollections(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an array of OPCHDA_MODIFIEDITEM structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetModifiedValueCollection(System.IntPtr,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_MODIFIEDITEM structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetModifiedValueCollection(OpcRcw.Hda.OPCHDA_MODIFIEDITEM,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_MODIFIEDITEM structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetAttributeValueCollections(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an array of OPCHDA_ATTRIBUTE structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetAttributeValueCollection(System.IntPtr,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_ATTRIBUTE structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetAttributeValueCollection(OpcRcw.Hda.OPCHDA_ATTRIBUTE,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_ATTRIBUTE structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetAnnotationValueCollections(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an array of OPCHDA_ANNOTATION structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetAnnotationValueCollection(System.IntPtr,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_ANNOTATION structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Interop.GetAnnotationValueCollection(OpcRcw.Hda.OPCHDA_ANNOTATION,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an OPCHDA_ANNOTATION structure.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Hda.Server">
+            <summary>
+            An in-process wrapper for a remote OPC COM-HDA server (thread-safe).
+            </summary>
+        </member>
+        <member name="T:OpcCom.Server">
+            <summary>
+            An in-process wrapper for a remote OPC COM-DA server (not thread safe).
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.#ctor">
+            <summary>
+            Initializes the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.#ctor(Opc.URL,System.Object)">
+            <summary>
+            Initializes the object with the specifed COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Finalize">
+            <summary>
+            The finalizer.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Dispose">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Initialize(Opc.URL,Opc.ConnectData)">
+            <summary>
+            Connects to the server with the specified URL and credentials.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Uninitialize">
+            <summary>
+            Releases the remote server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.GetLocale">
+            <summary>
+            The locale used in any error messages or results returned to the client.
+            </summary>
+            <returns>The locale name in the format "[languagecode]-[country/regioncode]".</returns>
+        </member>
+        <member name="M:OpcCom.Server.SetLocale(System.String)">
+            <summary>
+            Sets the locale used in any error messages or results returned to the client.
+            </summary>
+            <param name="locale">The locale name in the format "[languagecode]-[country/regioncode]".</param>
+            <returns>A locale that the server supports and is the best match for the requested locale.</returns>
+        </member>
+        <member name="M:OpcCom.Server.GetSupportedLocales">
+            <summary>
+            Returns the locales supported by the server
+            </summary>
+            <remarks>The first element in the array must be the default locale for the server.</remarks>
+            <returns>An array of locales with the format "[languagecode]-[country/regioncode]".</returns>
+        </member>
+        <member name="M:OpcCom.Server.GetErrorText(System.String,Opc.ResultID)">
+            <summary>
+            Returns the localized text for the specified result code.
+            </summary>
+            <param name="locale">The locale name in the format "[languagecode]-[country/regioncode]".</param>
+            <param name="resultID">The result code identifier.</param>
+            <returns>A message localized for the best match for the requested locale.</returns>
+        </member>
+        <member name="M:OpcCom.Server.Advise">
+            <summary>
+            Establishes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Unadvise">
+            <summary>
+            Closes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Server.m_server">
+            <summary>
+            The COM server wrapped by the object.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Server.m_url">
+            <summary>
+            The URL containing host, prog id and clsid information for the remote server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Server.m_connection">
+            <summary>
+            A connect point with the COM server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Server.m_callback">
+            <summary>
+            The internal object that implements the IOPCShutdown interface.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Server.ServerShutdown">
+            <summary>
+            An event to receive server shutdown notifications.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Server.Callback">
+            <summary>
+            A class that implements the IOPCShutdown interface.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Callback.#ctor(OpcCom.Server)">
+            <summary>
+            Initializes the object with the containing subscription object.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Server.Callback.m_server">
+            <summary>
+            A table of item identifiers indexed by internal handle.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Server.Callback.ShutdownRequest(System.String)">
+            <summary>
+            Called when a shutdown event is received.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Server.Callback.ServerShutdown">
+            <summary>
+            An event to receive server shutdown notificiations.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Server.Callback.m_serverShutdown">
+            <summary>
+            Raised when data changed callbacks arrive.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.#ctor">
+            <summary>
+            Initializes the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.#ctor(Opc.URL,System.Object)">
+            <summary>
+            Initializes the object with the specifed COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetStatus">
+            <summary>
+            Returns the current server status.
+            </summary>
+            <returns>The current server status.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetAttributes">
+            <summary>
+            Returns the item attributes supported by the server.
+            </summary>
+            <returns>The a set of item attributes and their descriptions.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetAggregates">
+            <summary>
+            Returns the aggregates supported by the server.
+            </summary>
+            <returns>The a set of aggregates and their descriptions.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.CreateBrowser(Opc.Hda.BrowseFilter[],Opc.ResultID[]@)">
+            <summary>
+            Creates a object used to browse the server address space.
+            </summary>
+            <param name="filters">The set of attribute filters to use when browsing.</param>
+            <param name="results">A result code for each individual filter.</param>
+            <returns>A browser object that must be released by calling Dispose().</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.CreateItems(Opc.ItemIdentifier[])">
+            <summary>
+            Creates a set of items.
+            </summary>
+            <param name="items">The identifiers for the items to create.</param>
+            <returns>The results for each item containing the server handle and result code.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReleaseItems(Opc.ItemIdentifier[])">
+            <summary>
+            Releases a set of previously created items.
+            </summary>
+            <param name="items">The server handles for the items to release.</param>
+            <returns>The results for each item containing the result code.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ValidateItems(Opc.ItemIdentifier[])">
+            <summary>
+            Validates a set of items.
+            </summary>
+            <param name="items">The identifiers for the items to validate.</param>
+            <returns>The results for each item containing the result code.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadRaw(Opc.Hda.Time,Opc.Hda.Time,System.Int32,System.Boolean,Opc.ItemIdentifier[])">
+            <summary>
+            Reads raw (unprocessed) data from the historian database for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="maxValues">The number of values to be read for each item.</param>
+            <param name="includeBounds">Whether the bounding item values should be returned.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadRaw(Opc.Hda.Time,Opc.Hda.Time,System.Int32,System.Boolean,Opc.ItemIdentifier[],System.Object,Opc.Hda.ReadValuesEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to read raw data from the historian database for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="maxValues">The number of values to be read for each item.</param>
+            <param name="includeBounds">Whether the bounding item values should be returned.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.AdviseRaw(Opc.Hda.Time,System.Decimal,Opc.ItemIdentifier[],System.Object,Opc.Hda.DataUpdateEventHandler,Opc.IRequest@)">
+            <summary>
+            Requests that the server periodically send notifications when new data becomes available for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="updateInterval">The frequency, in seconds, that the server should check for new data.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.PlaybackRaw(Opc.Hda.Time,Opc.Hda.Time,System.Int32,System.Decimal,System.Decimal,Opc.ItemIdentifier[],System.Object,Opc.Hda.DataUpdateEventHandler,Opc.IRequest@)">
+            <summary>
+            Begins the playback raw data from the historian database for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="maxValues">The number of values to be read for each item.</param>		
+            <param name="updateInterval">The frequency, in seconds, that the server send data.</param>
+            <param name="playbackDuration">The duration, in seconds, of the timespan returned with each update.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadProcessed(Opc.Hda.Time,Opc.Hda.Time,System.Decimal,Opc.Hda.Item[])">
+            <summary>
+            Reads processed data from the historian database for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="resampleInterval">The interval between returned values.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadProcessed(Opc.Hda.Time,Opc.Hda.Time,System.Decimal,Opc.Hda.Item[],System.Object,Opc.Hda.ReadValuesEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to read processed data from the historian database for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="resampleInterval">The interval between returned values.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.AdviseProcessed(Opc.Hda.Time,System.Decimal,System.Int32,Opc.Hda.Item[],System.Object,Opc.Hda.DataUpdateEventHandler,Opc.IRequest@)">
+            <summary>
+            Requests that the server periodically send notifications when new data becomes available for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="resampleInterval">The interval between returned values.</param>
+            <param name="numberOfIntervals">The number of resample intervals that the server should return in each callback.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.PlaybackProcessed(Opc.Hda.Time,Opc.Hda.Time,System.Decimal,System.Int32,System.Decimal,Opc.Hda.Item[],System.Object,Opc.Hda.DataUpdateEventHandler,Opc.IRequest@)">
+            <summary>
+            Begins the playback of processed data from the historian database for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="resampleInterval">The interval between returned values.</param>
+            <param name="numberOfIntervals">The number of resample intervals that the server should return in each callback.</param>
+            <param name="updateInterval">The frequency, in seconds, that the server send data.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadAtTime(System.DateTime[],Opc.ItemIdentifier[])">
+            <summary>
+            Reads data from the historian database for a set of items at specific times.
+            </summary>
+            <param name="timestamps">The set of timestamps to use when reading items values.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadAtTime(System.DateTime[],Opc.ItemIdentifier[],System.Object,Opc.Hda.ReadValuesEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to read item values at specific times.
+            </summary>
+            <param name="timestamps">The set of timestamps to use when reading items values.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadModified(Opc.Hda.Time,Opc.Hda.Time,System.Int32,Opc.ItemIdentifier[])">
+            <summary>
+            Reads item values that have been deleted or replaced.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="maxValues">The number of values to be read for each item.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <returns>A set of values, qualities and timestamps within the requested time range for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadModified(Opc.Hda.Time,Opc.Hda.Time,System.Int32,Opc.ItemIdentifier[],System.Object,Opc.Hda.ReadValuesEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to read item values that have been deleted or replaced.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="maxValues">The number of values to be read for each item.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadAttributes(Opc.Hda.Time,Opc.Hda.Time,Opc.ItemIdentifier,System.Int32[])">
+            <summary>
+            Reads the current or historical values for the attributes of an item.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="item">The item to read (must include the server handle).</param>
+            <param name="attributeIDs">The attributes to read.</param>
+            <returns>A set of attribute values for each requested attribute.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadAttributes(Opc.Hda.Time,Opc.Hda.Time,Opc.ItemIdentifier,System.Int32[],System.Object,Opc.Hda.ReadAttributesEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to read the attributes of an item.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="item">The item to read (must include the server handle).</param>
+            <param name="attributeIDs">The attributes to read.</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the attribute ids.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadAnnotations(Opc.Hda.Time,Opc.Hda.Time,Opc.ItemIdentifier[])">
+            <summary>
+            Reads any annotations for an item within the a time interval.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <returns>A set of annotations within the requested time range for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.ReadAnnotations(Opc.Hda.Time,Opc.Hda.Time,Opc.ItemIdentifier[],System.Object,Opc.Hda.ReadAnnotationsEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to read the annotations for a set of items.
+            </summary>
+            <param name="startTime">The beginning of the history period to read.</param>
+            <param name="endTime">The end of the history period to be read.</param>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.InsertAnnotations(Opc.Hda.AnnotationValueCollection[])">
+            <summary>
+            Inserts annotations for one or more items.
+            </summary>
+            <param name="items">A list of annotations to add for each item (must include the server handle).</param>
+            <returns>The results of the insert operation for each annotation set.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.InsertAnnotations(Opc.Hda.AnnotationValueCollection[],System.Object,Opc.Hda.UpdateCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to inserts annotations for one or more items.
+            </summary>
+            <param name="items">A list of annotations to add for each item (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Insert(Opc.Hda.ItemValueCollection[],System.Boolean)">
+            <summary>
+            Inserts the values into the history database for one or more items. 
+            </summary>
+            <param name="items">The set of values to insert.</param>
+            <param name="replace">Whether existing values should be replaced.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Insert(Opc.Hda.ItemValueCollection[],System.Boolean,System.Object,Opc.Hda.UpdateCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to inserts values for one or more items.
+            </summary>
+            <param name="items">The set of values to insert.</param>
+            <param name="replace">Whether existing values should be replaced.</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Replace(Opc.Hda.ItemValueCollection[])">
+            <summary>
+            Replace the values into the history database for one or more items. 
+            </summary>
+            <param name="items">The set of values to replace.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Replace(Opc.Hda.ItemValueCollection[],System.Object,Opc.Hda.UpdateCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to replace values for one or more items.
+            </summary>
+            <param name="items">The set of values to replace.</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Delete(Opc.Hda.Time,Opc.Hda.Time,Opc.ItemIdentifier[])">
+            <summary>
+            Deletes the values with the specified time domain for one or more items.
+            </summary>
+            <param name="startTime">The beginning of the history period to delete.</param>
+            <param name="endTime">The end of the history period to be delete.</param>
+            <param name="items">The set of items to delete (must include the server handle).</param>
+            <returns>The results of the delete operation for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Delete(Opc.Hda.Time,Opc.Hda.Time,Opc.ItemIdentifier[],System.Object,Opc.Hda.UpdateCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to delete values for one or more items.
+            </summary>
+            <param name="startTime">The beginning of the history period to delete.</param>
+            <param name="endTime">The end of the history period to be delete.</param>
+            <param name="items">The set of items to delete (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.DeleteAtTime(Opc.Hda.ItemTimeCollection[])">
+            <summary>
+            Deletes the values at the specified times for one or more items. 
+            </summary>
+            <param name="items">The set of timestamps to delete for one or more items.</param>
+            <returns>The results of the operation for each timestamp.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.DeleteAtTime(Opc.Hda.ItemTimeCollection[],System.Object,Opc.Hda.UpdateCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Sends an asynchronous request to delete values for one or more items at a specified times.
+            </summary>
+            <param name="items">The set of timestamps to delete for one or more items.</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Server.CancelRequest(Opc.IRequest)">
+            <summary>
+            Cancels an asynchronous request.
+            </summary>
+            <param name="request">The state object for the request to cancel.</param>
+        </member>
+        <member name="M:OpcCom.Hda.Server.CancelRequest(Opc.IRequest,Opc.Hda.CancelCompleteEventHandler)">
+            <summary>
+            Cancels an asynchronous request.
+            </summary>
+            <param name="request">The state object for the request to cancel.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Advise">
+            <summary>
+            Establishes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.Unadvise">
+            <summary>
+            Closes a connection point callback with the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.CreateHandle">
+            <summary>
+            Creates a unique handle for an item.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetInvalidHandle">
+            <summary>
+            Finds an invalid server handle.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetCount(System.Collections.ICollection[])">
+            <summary>
+            Gets the total count for multiple collections.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.CreateResultCollections(Opc.ItemIdentifier[])">
+            <summary>
+            Initializes a set of result collections from a set of item ids.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetServerHandles(Opc.ItemIdentifier[])">
+            <summary>
+            Returns an array of item server handles.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetAggregateIDs(Opc.Hda.Item[])">
+            <summary>
+            Returns an array of item aggregate ids.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.UpdateResult(Opc.ItemIdentifier,Opc.ItemIdentifier,System.Int32)">
+            <summary>
+            Updates the result with locally cached item information.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.UpdateActualTimes(Opc.Hda.IActualTime[],OpcRcw.Hda.OPCHDA_TIME,OpcRcw.Hda.OPCHDA_TIME)">
+            <summary>
+            Adds the actual start/end times to a result collection. 
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.UpdateResults(Opc.ItemIdentifier,Opc.Hda.AttributeValueCollection[],System.IntPtr@)">
+            <summary>
+            Updates the attribute value objects before returing them to the client.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.UpdateResults(Opc.ItemIdentifier[],Opc.ItemIdentifier[],System.IntPtr@)">
+            <summary>
+            Updates the annotation value objects before returing them to the client.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.UpdateResults(System.Collections.ICollection[],Opc.Hda.ResultCollection[],System.Int32,System.IntPtr@)">
+            <summary>
+            Unmarshals the errors array and updates the result objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.MarshalValues(Opc.Hda.ItemValueCollection[],System.Int32[]@,System.Object[]@,System.Int32[]@,System.DateTime[]@)">
+            <summary>
+            Flattens a set of item value collections into an set of single arrays.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.MarshalTimestamps(Opc.Hda.ItemTimeCollection[],System.Int32[]@,System.DateTime[]@)">
+            <summary>
+            Flattens a set of item time collections into an set of single arrays.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.MarshalAnnotatations(Opc.Hda.AnnotationValueCollection[],System.Int32[]@,OpcRcw.Hda.OPCHDA_FILETIME[]@,OpcRcw.Hda.OPCHDA_ANNOTATION[]@)">
+            <summary>
+            Marshals a set of annotation collections into an set of arrays.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Server.GetIdentifiedResults(Opc.Hda.ResultCollection[])">
+            <summary>
+            Collapses a set of result collections into a single result code.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Dx.Interop">
+            <summary>
+            Contains state information for a single asynchronous OpcCom.Da.Interop.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetResultIDs(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Converts an array of COM HRESULTs structures to .NET ResultID objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetSourceServers(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Converts an array of COM SourceServer structures to .NET SourceServer objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetSourceServers(Opc.Dx.SourceServer[])">
+            <summary>
+            Converts an array of .NET SourceServer objects to COM SourceServer structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetGeneralResponse(OpcRcw.Dx.DXGeneralResponse,System.Boolean)">
+            <summary>
+            Converts an array of COM DXGeneralResponse structure to a .NET GeneralResponse object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetIdentifiedResults(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Converts an array of COM IdentifiedResult structures to .NET IdentifiedResult objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetDXConnections(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Converts an array of COM DXConnection structures to .NET DXConnection objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetDXConnections(Opc.Dx.DXConnection[])">
+            <summary>
+            Converts an array of .NET DXConnection objects to COM DXConnection structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetDXConnection(Opc.Dx.DXConnection)">
+            <summary>
+            Converts a .NET DXConnection object to COM DXConnection structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetDXConnection(OpcRcw.Dx.DXConnection,System.Boolean)">
+            <summary>
+            Converts a COM DXConnection structure to a .NET DXConnection object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Interop.GetItemIdentifiers(Opc.Dx.ItemIdentifier[])">
+            <summary>
+            Converts an array of .NET ItemIdentifier objects to COM ItemIdentifier structures.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.BrowsePosition">
+            <summary>
+            Implements an object that handles multi-step browse operations.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.BrowsePosition.ContinuationPoint">
+            <summary>
+            The continuation point for a browse operation.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.BrowsePosition.MoreElements">
+            <summary>
+            Indicates that elements that meet the filter criteria have not been returned.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.BrowsePosition.#ctor(Opc.ItemIdentifier,Opc.Da.BrowseFilters,System.String)">
+            <summary>
+            Initializes a browse position 
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.Server">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.ConnectionPointContainer">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.OnAdvise(System.Guid)">
+            <summary>
+            Called when a IConnectionPoint.Advise is called.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.OnUnadvise(System.Guid)">
+            <summary>
+            Called when a IConnectionPoint.Unadvise is called.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.#ctor">
+            <summary>
+            Initializes the object with default values.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.RegisterInterface(System.Guid)">
+            <summary>
+            Registers an interface as a connection point.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.UnregisterInterface(System.Guid)">
+            <summary>
+            Unregisters an interface as a connection point.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.GetCallback(System.Guid)">
+            <summary>
+            Returns the callback interface for the connection point (if currently connected).
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.IsConnected(System.Guid)">
+            <summary>
+            Whether a client has connected to the specified connection point.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.EnumConnectionPoints(OpcRcw.Comn.IEnumConnectionPoints@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPointContainer.FindConnectionPoint(System.Guid@,OpcRcw.Comn.IConnectionPoint@)">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.IOPCWrappedServer">
+            <summary>
+            An interface that is invoked when the wrapper loads/unloads the server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.IOPCWrappedServer.Load(System.Guid)">
+            <summary>
+            Called when the object is loaded by the COM wrapper process.
+            </summary>
+        </member>
+        <member name="M:OpcCom.IOPCWrappedServer.Unload">
+            <summary>
+            Called when the object is unloaded by the COM wrapper process.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.#ctor">
+            <summary>
+            Initializes the object with the default values.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.SetGroupName(System.String,System.String)">
+            <summary>
+            Changes the name of an existing group.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.CreateException(System.Exception)">
+            <summary>
+            Converts an exception to an exception that returns a COM error code.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.CreateException(System.Int32)">
+            <summary>
+            Creates an exception from a COM error code.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.CreateGroup(Opc.Da.SubscriptionState@,System.Int32,System.Int32)">
+            <summary>
+            Creates a new group.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.Load(System.Guid)">
+            <summary>
+            Called when the object is loaded by the COM wrapper process.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.Unload">
+            <summary>
+            Called when the object is unloaded by the COM wrapper process.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.SetLocaleID(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.QueryAvailableLocaleIDs(System.Int32@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.GetLocaleID(System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.OpcRcw#Comn#IOPCCommon#GetErrorString(System.Int32,System.String@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.SetClientName(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.GetGroupByName(System.String,System.Guid@,System.Object@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.GetErrorString(System.Int32,System.Int32,System.String@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.RemoveGroup(System.Int32,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.CreateGroupEnumerator(OpcRcw.Da.OPCENUMSCOPE,System.Guid@,System.Object@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.AddGroup(System.String,System.Int32,System.Int32,System.Int32,System.IntPtr,System.IntPtr,System.Int32,System.Int32@,System.Int32@,System.Guid@,System.Object@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.GetStatus(System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.Browse(System.String,System.IntPtr@,System.Int32,OpcRcw.Da.OPCBROWSEFILTER,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32[],System.Int32@,System.Int32@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.GetProperties(System.Int32,System.String[],System.Int32,System.Int32,System.Int32[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.GetItemID(System.String,System.String@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.BrowseAccessPaths(System.String,OpcRcw.Comn.IEnumString@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.QueryOrganization(OpcRcw.Da.OPCNAMESPACETYPE@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.ChangeBrowsePosition(OpcRcw.Da.OPCBROWSEDIRECTION,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.BrowseOPCItemIDs(OpcRcw.Da.OPCBROWSETYPE,System.String,System.Int16,System.Int32,OpcRcw.Comn.IEnumString@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.LookupItemIDs(System.String,System.Int32,System.Int32[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.QueryAvailableProperties(System.String,System.Int32@,System.IntPtr@,System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.GetItemProperties(System.String,System.Int32,System.Int32[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.WriteVQT(System.Int32,System.String[],OpcRcw.Da.OPCITEMVQT[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.Read(System.Int32,System.String[],System.Int32[],System.IntPtr@,System.IntPtr@,System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.CleanupContinuationPoints">
+            <summary>
+            Removes all expired continuation points.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.IsItem(System.String)">
+            <summary>
+            Finds the item id at the current browse position corresponding the name.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.FindChild(System.String)">
+            <summary>
+            Finds the item id at the current browse position corresponding the name.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.BuildBrowseStack(Opc.ItemIdentifier)">
+            <summary>
+            Recursively rebuilds the browse stack.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.BuildBrowseStack(Opc.ItemIdentifier,Opc.ItemIdentifier)">
+            <summary>
+            Recursively rebuilds the browse stack.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Server.Browse(Opc.ItemIdentifier,OpcRcw.Da.OPCBROWSETYPE,System.String,System.Int16,System.Int32,System.Collections.ArrayList)">
+            <summary>
+            Browses for children of the specified item.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Da.Wrapper.Server.IServer">
+            <summary>
+            The data access server object that is being wrapped and exposed via COM.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.Server.ContinuationPoint">
+            <summary>
+            Stores information about a continuation point.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.Group">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.#ctor(OpcCom.Da.Wrapper.Server,System.String,System.Int32,System.Int32,System.Int32,Opc.Da.ISubscription)">
+            <summary>
+            Initializes the object with the default values.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.OnAdvise(System.Guid)">
+            <summary>
+            Called when a IConnectionPoint.Advise is called.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.OnUnadvise(System.Guid)">
+            <summary>
+            Called when a IConnectionPoint.Unadvise is called.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Finalize">
+            <summary>
+            The finalizer.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Dispose">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetActiveState(System.Int32,System.Int32[],System.Int32,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.AddItems(System.Int32,OpcRcw.Da.OPCITEMDEF[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetClientHandles(System.Int32,System.Int32[],System.Int32[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetDatatypes(System.Int32,System.Int32[],System.Int16[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.ValidateItems(System.Int32,OpcRcw.Da.OPCITEMDEF[],System.Int32,System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.CreateEnumerator(System.Guid@,System.Object@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.RemoveItems(System.Int32,System.Int32[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Read(OpcRcw.Da.OPCDATASOURCE,System.Int32,System.Int32[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Write(System.Int32,System.Int32[],System.Object[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.ReadMaxAge(System.Int32,System.Int32[],System.Int32[],System.IntPtr@,System.IntPtr@,System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.WriteVQT(System.Int32,System.Int32[],OpcRcw.Da.OPCITEMVQT[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Read(System.Int32,System.Int32[],System.Int32,System.Int32@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Write(System.Int32,System.Int32[],System.Object[],System.Int32,System.Int32@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Cancel2(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.Refresh2(OpcRcw.Da.OPCDATASOURCE,System.Int32,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetEnable(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.GetEnable(System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.ReadMaxAge(System.Int32,System.Int32[],System.Int32[],System.Int32,System.Int32@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.WriteVQT(System.Int32,System.Int32[],OpcRcw.Da.OPCITEMVQT[],System.Int32,System.Int32@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.RefreshMaxAge(System.Int32,System.Int32,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.GetState(System.Int32@,System.Int32@,System.String@,System.Int32@,System.Single@,System.Int32@,System.Int32@,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.CloneGroup(System.String,System.Guid@,System.Object@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetName(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetState(System.IntPtr,System.Int32@,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.GetKeepAlive(System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetKeepAlive(System.Int32,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetItemDeadband(System.Int32,System.Int32[],System.Single[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.GetItemDeadband(System.Int32,System.Int32[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.ClearItemDeadband(System.Int32,System.Int32[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetItemSamplingRate(System.Int32,System.Int32[],System.Int32[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.GetItemSamplingRate(System.Int32,System.Int32[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.ClearItemSamplingRate(System.Int32,System.Int32[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.SetItemBufferEnable(System.Int32,System.Int32[],System.Int32[],System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.GetItemBufferEnable(System.Int32,System.Int32[],System.IntPtr@,System.IntPtr@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.AssignHandle">
+            <summary>
+            Creates a unique handle for transactions.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.OnDataChanged(System.Object,System.Object,Opc.Da.ItemValueResult[])">
+            <summary>
+            A delegate to receive asynchronous dta changed notifications.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.OnReadComplete(System.Object,Opc.Da.ItemValueResult[])">
+            <summary>
+            A delegate to receive asynchronous read completed notifications.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.InvokeCallback(System.Object,Opc.Da.ItemValueResult[],System.Boolean)">
+            <summary>
+            A delegate to receive asynchronous read completed notifications.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.OnWriteComplete(System.Object,Opc.IdentifiedResult[])">
+            <summary>
+            A delegate to receive asynchronous write completed notifications.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.Group.AddItems(Opc.Da.Item[])">
+            <summary>
+            Adds the items to group.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Da.Wrapper.Group.Name">
+            <summary>
+            The unique name for the group.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Da.Wrapper.Group.ServerHandle">
+            <summary>
+            The unique server assigned handle for the group.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.ConnectionPoint">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPoint.#ctor(System.Guid,OpcCom.Da.Wrapper.ConnectionPointContainer)">
+            <summary>
+            Creates a connection point for the specified interface and container.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPoint.Advise(System.Object,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPoint.Unadvise(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPoint.GetConnectionInterface(System.Guid@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPoint.EnumConnections(OpcRcw.Comn.IEnumConnections@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.ConnectionPoint.GetConnectionPointContainer(OpcRcw.Comn.IConnectionPointContainer@)">
+            <remarks/>
+        </member>
+        <member name="P:OpcCom.Da.Wrapper.ConnectionPoint.Callback">
+            <summary>
+            The current callback object.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Da.Wrapper.ConnectionPoint.IsConnected">
+            <summary>
+            Whether the client has connected to the connection point.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.EnumConnectionPoints">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumConnectionPoints.#ctor(System.Collections.ICollection)">
+            <summary>
+            Initializes the object with a set of connection points.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumConnectionPoints.Skip(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumConnectionPoints.Clone(OpcRcw.Comn.IEnumConnectionPoints@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumConnectionPoints.Reset">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumConnectionPoints.RemoteNext(System.Int32,System.IntPtr,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.EnumOPCItemAttributes">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumOPCItemAttributes.#ctor(System.Collections.ICollection)">
+            <summary>
+            Initializes the object with a set of connection points.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumOPCItemAttributes.Skip(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumOPCItemAttributes.Clone(OpcRcw.Da.IEnumOPCItemAttributes@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumOPCItemAttributes.Reset">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumOPCItemAttributes.Next(System.Int32,System.IntPtr@,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.ItemID">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.AccessPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.ClientHandle">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.ServerHandle">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.Active">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.CanonicalDataType">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.RequestedDataType">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.AccessRights">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.EuType">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.MaxValue">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.MinValue">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.Wrapper.EnumOPCItemAttributes.ItemAttributes.EuInfo">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.EnumUnknown">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumUnknown.#ctor(System.Collections.ICollection)">
+            <summary>
+            Initializes the object with a set of interface pointers.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumUnknown.Skip(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumUnknown.Clone(OpcRcw.Comn.IEnumUnknown@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumUnknown.Reset">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumUnknown.RemoteNext(System.Int32,System.IntPtr,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Da.Wrapper.EnumString">
+            <summary>
+            A class that implements the COM-DA interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumString.#ctor(System.Collections.ICollection)">
+            <summary>
+            Initializes the object with a set of interface pointers.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumString.Skip(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumString.Clone(OpcRcw.Comn.IEnumString@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumString.Reset">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Wrapper.EnumString.RemoteNext(System.Int32,System.IntPtr,System.Int32@)">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Hda.ResultIDs">
+            <summary>
+            Defines all well known COM HDA HRESULT codes.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_MAXEXCEEDED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.S_NODATA">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.S_MOREDATA">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_INVALIDAGGREGATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.S_CURRENTVALUE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.S_EXTRADATA">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.W_NOFILTER">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_UNKNOWNATTRID">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_NOT_AVAIL">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_INVALIDDATATYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_DATAEXISTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_INVALIDATTRID">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.E_NODATAEXISTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.S_INSERTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Hda.ResultIDs.S_REPLACED">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Factory">
+            <summary>
+            The default class used to instantiate server objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Factory.#ctor">
+            <summary>
+            Initializes an instance for use for in process objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Factory.#ctor(System.Boolean)">
+            <summary>
+            Initializes an instance for use with .NET remoting.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Factory.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Contructs a server by de-serializing its URL from the stream.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Factory.CreateInstance(Opc.URL,Opc.ConnectData)">
+            <summary>
+            Creates a new instance of the server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Factory.Connect(Opc.URL,Opc.ConnectData)">
+            <summary>
+            Connects to the specified COM server server.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Dx.ResultIDs">
+            <summary>
+            Defines all well known COM DX HRESULT codes.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_PERSISTING">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_NOITEMLIST">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SERVER_STATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_VERSION_MISMATCH">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_UNKNOWN_ITEM_PATH">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_UNKNOWN_ITEM_NAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_ITEM_PATH">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_ITEM_NAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_NAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_DUPLICATE_NAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_BROWSE_PATH">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_SERVER_URL">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_SERVER_TYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_UNSUPPORTED_SERVER_TYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_CONNECTIONS_EXIST">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TOO_MANY_CONNECTIONS">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_OVERRIDE_BADTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_OVERRIDE_RANGE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SUBSTITUTE_BADTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SUBSTITUTE_RANGE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_TARGET_ITEM">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_UNKNOWN_TARGET_ITEM">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TARGET_ALREADY_CONNECTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_UNKNOWN_SERVER_NAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_UNKNOWN_SOURCE_ITEM">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_SOURCE_ITEM">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_QUEUE_SIZE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_DEADBAND">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_INVALID_CONFIG_FILE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_PERSIST_FAILED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TARGET_FAULT">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TARGET_NO_ACCESSS">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_SERVER_FAULT">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_SERVER_NO_ACCESSS">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SUBSCRIPTION_FAULT">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_ITEM_BADRIGHTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_ITEM_BAD_QUALITY">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_ITEM_BADTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_ITEM_RANGE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_SERVER_NOT_CONNECTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_SOURCE_SERVER_TIMEOUT">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TARGET_ITEM_DISCONNECTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TARGET_NO_WRITES_ATTEMPTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TARGET_ITEM_BADTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.E_TARGET_ITEM_RANGE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.S_TARGET_SUBSTITUTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.S_TARGET_OVERRIDEN">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Dx.ResultIDs.S_CLAMP">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Dx.Server">
+            <summary>
+            An in-process object used to access OPC Data eXchange servers.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Server">
+            <summary>
+            A .NET wrapper for a COM server that implements the DA server interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Server.#ctor">
+            <summary>
+            Initializes the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Server.#ctor(Opc.URL,System.Object)">
+            <summary>
+            Initializes the object with the specifed COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Server.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Server.GetErrorText(System.String,Opc.ResultID)">
+            <summary>
+            Returns the localized text for the specified result code.
+            </summary>
+            <param name="locale">The locale name in the format "[languagecode]-[country/regioncode]".</param>
+            <param name="resultID">The result code identifier.</param>
+            <returns>A message localized for the best match for the requested locale.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.GetResultFilters">
+            <summary>
+            Returns the filters applied by the server to any item results returned to the client.
+            </summary>
+            <returns>A bit mask indicating which fields should be returned in any item results.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.SetResultFilters(System.Int32)">
+            <summary>
+            Sets the filters applied by the server to any item results returned to the client.
+            </summary>
+            <param name="filters">A bit mask indicating which fields should be returned in any item results.</param>
+        </member>
+        <member name="M:OpcCom.Da.Server.GetStatus">
+            <summary>
+            Returns the current server status.
+            </summary>
+            <returns>The current server status.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.Read(Opc.Da.Item[])">
+            <summary>
+            Reads the current values for a set of items. 
+            </summary>
+            <param name="items">The set of items to read.</param>
+            <returns>The results of the read operation for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.Write(Opc.Da.ItemValue[])">
+            <summary>
+            Writes the value, quality and timestamp for a set of items.
+            </summary>
+            <param name="items">The set of item values to write.</param>
+            <returns>The results of the write operation for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.CreateSubscription(Opc.Da.SubscriptionState)">
+            <summary>
+            Creates a new subscription.
+            </summary>
+            <param name="state">The initial state of the subscription.</param>
+            <returns>The new subscription object.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.CancelSubscription(Opc.Da.ISubscription)">
+            <summary>
+            Cancels a subscription and releases all resources allocated for it.
+            </summary>
+            <param name="subscription">The subscription to cancel.</param>
+        </member>
+        <member name="M:OpcCom.Da.Server.Browse(Opc.ItemIdentifier,Opc.Da.BrowseFilters,Opc.Da.BrowsePosition@)">
+            <summary>
+            Fetches the children of a branch that meet the filter criteria.
+            </summary>
+            <param name="itemID">The identifier of branch which is the target of the search.</param>
+            <param name="filters">The filters to use to limit the set of child elements returned.</param>
+            <param name="position">An object used to continue a browse that could not be completed.</param>
+            <returns>The set of elements found.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.BrowseNext(Opc.Da.BrowsePosition@)">
+            <summary>
+            Continues a browse operation with previously specified search criteria.
+            </summary>
+            <param name="position">An object containing the browse operation state information.</param>
+            <returns>The set of elements found.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.GetProperties(Opc.ItemIdentifier[],Opc.Da.PropertyID[],System.Boolean)">
+            <summary>
+            Returns the item properties for a set of items.
+            </summary>
+            <param name="itemIDs">A list of item identifiers.</param>
+            <param name="propertyIDs">A list of properties to fetch for each item.</param>
+            <param name="returnValues">Whether the property values should be returned with the properties.</param>
+            <returns>A list of properties for each item.</returns>
+        </member>
+        <member name="M:OpcCom.Da.Server.ChangeType(System.Object,System.Type,System.String)">
+            <summary>
+            Converts a value to the specified type using the specified locale.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Server.CreateSubscription(System.Object,Opc.Da.SubscriptionState,System.Int32)">
+            <summary>
+            Creates a new instance of a subscription.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Server.ProcessResults(Opc.Da.BrowseElement[],Opc.Da.PropertyID[])">
+            <summary>
+            Updates the properties to convert COM values to OPC .NET API results.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Server.m_filters">
+            <summary>
+            The default result filters for the server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Server.m_subscriptions">
+            <summary>
+            A table of active subscriptions for the server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Server.#ctor(Opc.URL,System.Object)">
+            <summary>
+            Initializes the object with the specified URL and COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Dx.Server.GetSourceServers">
+            <summary>
+            Fetches all source servers in the current configuration.
+            </summary>
+            <returns>The list of source servers.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.AddSourceServers(Opc.Dx.SourceServer[])">
+            <summary>
+            Adds a new set of source servers to the current configuration.
+            </summary>
+            <param name="servers">The list of source servers to add.</param>
+            <returns>The results of the operation for each source server.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.ModifySourceServers(Opc.Dx.SourceServer[])">
+            <summary>
+            Modifies a set of source servers in the current configuration.
+            </summary>
+            <param name="servers">A list source source attributes.</param>
+            <returns>The results of the operation for each source server.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.DeleteSourceServers(Opc.Dx.ItemIdentifier[])">
+            <summary>
+            Deletes a set of source servers in the current configuration.
+            </summary>
+            <param name="servers">A list of source servers to delete.</param>
+            <returns>The results of the operation for each source server.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.CopyDefaultSourceServerAttributes(System.Boolean,Opc.Dx.ItemIdentifier[])">
+            <summary>
+            Copies the default or runtime attributes for a set of source servers. 
+            </summary>
+            <param name="configToStatus">Whether the default attributes are copied to or copied from the runtime attributes.</param>
+            <param name="servers">The set of source servers to modify.</param>
+            <returns>The results of the operation for each source server.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.QueryDXConnections(System.String,Opc.Dx.DXConnection[],System.Boolean,Opc.ResultID[]@)">
+            <summary>
+            Returns a list of connections that meet the specified criteria.
+            </summary>
+            <param name="browsePath">The browse path where the search begins.</param>
+            <param name="connectionMasks">The masks that define the query criteria.</param>
+            <param name="recursive">Whether the folders under the browse path are searched as well.</param>
+            <param name="errors">Any errors associated with individual query masks.</param>
+            <returns>The list of connections that meet the criteria.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.AddDXConnections(Opc.Dx.DXConnection[])">
+            <summary>
+            Add a set of connections to the configuration.
+            </summary>
+            <param name="connections">The set of connections to add.</param>
+            <returns>The results of the operation for each connection.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.ModifyDXConnections(Opc.Dx.DXConnection[])">
+            <summary>
+            Modify a set of connections in the configuration.
+            </summary>
+            <param name="connections">The set of connections to modify.</param>
+            <returns>The results of the operation for each connection.</returns>
+            <remarks>Only explicitly specified attributes in the connection objects are changed.</remarks>
+        </member>
+        <member name="M:OpcCom.Dx.Server.UpdateDXConnections(System.String,Opc.Dx.DXConnection[],System.Boolean,Opc.Dx.DXConnection,Opc.ResultID[]@)">
+            <summary>
+            Updates a set of connections which meet the specified query criteria.
+            </summary>
+            <param name="browsePath">The browse path where the search begins.</param>
+            <param name="connectionMasks">The masks that define the query criteria.</param>
+            <param name="recursive">Whether the folders under the browse path are searched as well.</param>
+            <param name="connectionDefinition">The changes that will be applied to all connections meeting the criteria.</param>
+            <param name="errors">Any errors associated with individual query masks.</param>
+            <returns>The list of connections that met the criteria and were updated.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.DeleteDXConnections(System.String,Opc.Dx.DXConnection[],System.Boolean,Opc.ResultID[]@)">
+            <summary>
+            Deletes a set of connections which meet the specified query criteria.
+            </summary>
+            <param name="browsePath">The browse path where the search begins.</param>
+            <param name="connectionMasks">The masks that define the query criteria.</param>
+            <param name="recursive">Whether the folders under the browse path are searched as well.</param>
+            <param name="errors">Any errors associated with individual query masks.</param>
+            <returns>The list of connections that met the criteria and were deleted.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.CopyDXConnectionDefaultAttributes(System.Boolean,System.String,Opc.Dx.DXConnection[],System.Boolean,Opc.ResultID[]@)">
+            <summary>
+            Changes the default or runtime attributes for a set of connections. 
+            </summary>
+            <param name="configToStatus">Whether the default attributes are copied to or copied from the runtime attributes.</param>
+            <param name="browsePath">The browse path where the search begins.</param>
+            <param name="connectionMasks">The masks that define the query criteria.</param>
+            <param name="recursive">Whether the folders under the browse path are searched as well.</param>
+            <param name="errors">Any errors associated with individual query masks.</param>
+            <returns>The list of connections that met the criteria and were modified.</returns>
+        </member>
+        <member name="M:OpcCom.Dx.Server.ResetConfiguration(System.String)">
+            <summary>
+            Resets the current configuration,
+            </summary>
+            <param name="configurationVersion">The current configuration version.</param>
+            <returns>The new configuration version.</returns>
+        </member>
+        <member name="T:OpcCom.Da.ResultIDs">
+            <summary>
+            Defines all well known COM DA HRESULT codes.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.S_OK">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.S_FALSE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_NOTIMPL">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_OUTOFMEMORY">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_INVALIDARG">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_NOINTERFACE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_POINTER">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_FAIL">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.CONNECT_E_NOCONNECTION">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.CONNECT_E_ADVISELIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.DISP_E_TYPEMISMATCH">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.DISP_E_OVERFLOW">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_INVALIDHANDLE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_BADTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_PUBLIC">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_BADRIGHTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_UNKNOWNITEMID">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_INVALIDITEMID">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_INVALIDFILTER">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_UNKNOWNPATH">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_RANGE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_DUPLICATENAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.S_UNSUPPORTEDRATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.S_CLAMP">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.S_INUSE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_INVALIDCONFIGFILE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_NOTFOUND">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_INVALID_PID">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_DEADBANDNOTSET">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_DEADBANDNOTSUPPORTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_NOBUFFERING">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_INVALIDCONTINUATIONPOINT">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.S_DATAQUEUEOVERFLOW">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_RATENOTSET">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Da.ResultIDs.E_NOTSUPPORTED">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Cpx.ResultIDs">
+            <summary>
+            Defines all well known Complex Data HRESULT codes.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Cpx.ResultIDs.E_TYPE_CHANGED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Cpx.ResultIDs.E_FILTER_DUPLICATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Cpx.ResultIDs.E_FILTER_INVALID">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Cpx.ResultIDs.E_FILTER_ERROR">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Cpx.ResultIDs.S_FILTER_NO_DATA">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Da.Interop">
+            <summary>
+            Contains state information for a single asynchronous OpcCom.Da.Interop.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.Convert(System.Runtime.InteropServices.FILETIME)">
+            <summary>
+            Converts a standard FILETIME to an OpcRcw.Da.FILETIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.Convert(OpcRcw.Da.FILETIME)">
+            <summary>
+            Converts an OpcRcw.Da.FILETIME to a standard FILETIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetServerStatus(Opc.Da.ServerStatus,System.Int32)">
+            <summary>
+            Allocates and marshals a OPCSERVERSTATUS structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetServerStatus(System.IntPtr@,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates a OPCSERVERSTATUS structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetBrowseFilter(Opc.Da.browseFilter)">
+            <summary>
+            Converts a browseFilter values to the COM equivalent.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetBrowseFilter(OpcRcw.Da.OPCBROWSEFILTER)">
+            <summary>
+            Converts a browseFilter values from the COM equivalent.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetHRESULTs(Opc.IResult[])">
+            <summary>
+            Allocates and marshals an array of HRESULT codes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetBrowseElements(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an array of OPCBROWSEELEMENT structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetBrowseElements(Opc.Da.BrowseElement[],System.Boolean)">
+            <summary>
+            Allocates and marshals an array of OPCBROWSEELEMENT structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetBrowseElement(System.IntPtr,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates a OPCBROWSEELEMENT structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetBrowseElement(Opc.Da.BrowseElement,System.Boolean)">
+            <summary>
+            Allocates and marshals an OPCBROWSEELEMENT structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetPropertyIDs(Opc.Da.PropertyID[])">
+            <summary>
+            Creates an array of property codes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetPropertyIDs(System.Int32[])">
+            <summary>
+            Creates an array of property codes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemPropertyCollections(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates an array of OPCITEMPROPERTIES structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemPropertyCollections(Opc.Da.ItemPropertyCollection[])">
+            <summary>
+            Allocates and marshals an array of OPCITEMPROPERTIES structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemProperties(OpcRcw.Da.OPCITEMPROPERTIES@,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates a OPCITEMPROPERTIES structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemProperties(Opc.Da.ItemProperty[])">
+            <summary>
+            Allocates and marshals an array of OPCITEMPROPERTIES structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemProperty(System.IntPtr,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates a OPCITEMPROPERTY structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemProperty(Opc.Da.ItemProperty)">
+            <summary>
+            Allocates and marshals an arary of OPCITEMPROPERTY structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetPropertyID(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcCom.Da.Interop.UnmarshalPropertyValue(Opc.Da.PropertyID,System.Object)">
+            <summary>
+            Converts the property value to a type supported by the unified interface.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.MarshalPropertyValue(Opc.Da.PropertyID,System.Object)">
+            <summary>
+            Converts the property value to a type supported by COM-DA interface.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetOPCITEMVQTs(Opc.Da.ItemValue[])">
+            <summary>
+            Converts an array of item values to an array of OPCITEMVQT objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetOPCITEMDEFs(Opc.Da.Item[])">
+            <summary>
+            Converts an array of item objects to an array of GetOPCITEMDEF objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemValues(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates a OPCITEMSTATE structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemResults(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates a OPCITEMRESULT structures.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Interop.GetItemStates(Opc.Da.ItemValueResult[])">
+            <summary>
+            Allocates and marshals an array of OPCBROWSEELEMENT structures.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Hda.DataCallback">
+            <summary>
+             A class that implements the HDA data callback interface.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.#ctor">
+            <summary>
+            Initializes the object with the containing subscription object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.CreateRequest(System.Object,System.Delegate)">
+            <summary>
+            Creates a new request object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.CancelRequest(OpcCom.Hda.Request,Opc.Hda.CancelCompleteEventHandler)">
+            <summary>
+            Cancels an existing request.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnDataChange(System.Int32,System.Int32,System.Int32,OpcRcw.Hda.OPCHDA_ITEM[],System.Int32[])">
+            <summary>
+            Called when new data arrives for a subscription.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnReadComplete(System.Int32,System.Int32,System.Int32,OpcRcw.Hda.OPCHDA_ITEM[],System.Int32[])">
+            <summary>
+            Called when an asynchronous read request completes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnReadModifiedComplete(System.Int32,System.Int32,System.Int32,OpcRcw.Hda.OPCHDA_MODIFIEDITEM[],System.Int32[])">
+            <summary>
+            Called when an asynchronous read modified request completes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnReadAttributeComplete(System.Int32,System.Int32,System.Int32,System.Int32,OpcRcw.Hda.OPCHDA_ATTRIBUTE[],System.Int32[])">
+            <summary>
+            Called when an asynchronous read attributes request completes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnReadAnnotations(System.Int32,System.Int32,System.Int32,OpcRcw.Hda.OPCHDA_ANNOTATION[],System.Int32[])">
+            <summary>
+            Called when an asynchronous read annotations request completes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnInsertAnnotations(System.Int32,System.Int32,System.Int32,System.Int32[],System.Int32[])">
+            <summary>
+            Called when an asynchronous insert annotations request completes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnPlayback(System.Int32,System.Int32,System.Int32,System.IntPtr,System.Int32[])">
+            <summary>
+            Called when a batch of data from playback request arrives.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnUpdateComplete(System.Int32,System.Int32,System.Int32,System.Int32[],System.Int32[])">
+            <summary>
+            Called when an asynchronous update request completes.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.OnCancelComplete(System.Int32)">
+            <summary>
+            Called when an asynchronous request was cancelled successfully.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.DataCallback.HandleException(System.Int32,System.Exception)">
+            <summary>
+            Fires an event indicating an exception occurred during callback processing.
+            </summary>
+        </member>
+        <member name="E:OpcCom.Hda.DataCallback.CallbackException">
+            <summary>
+            Fired when an exception occurs during callback processing.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Hda.Browser">
+            <summary>
+            An in-process wrapper an OPC HDA browser object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.#ctor(OpcCom.Hda.Server,OpcRcw.Hda.IOPCHDA_Browser,Opc.Hda.BrowseFilter[],Opc.ResultID[])">
+            <summary>
+            Initializes the object with the specifed COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.Finalize">
+            <summary>
+            The finalizer.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.Dispose">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.Browse(Opc.ItemIdentifier)">
+            <summary>
+            Browses the server's address space at the specified branch.
+            </summary>
+            <param name="itemID">The item id of the branch to search.</param>
+            <returns>The set of elements that meet the filter criteria.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.Browse(Opc.ItemIdentifier,System.Int32,Opc.IBrowsePosition@)">
+            <summary>
+            Begins a browsing the server's address space at the specified branch.
+            </summary>
+            <param name="itemID">The item id of the branch to search.</param>
+            <param name="maxElements">The maximum number of elements to return.</param>
+            <param name="position">The position object used to continue a browse operation.</param>
+            <returns>The set of elements that meet the filter criteria.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.BrowseNext(System.Int32,Opc.IBrowsePosition@)">
+            <summary>
+            Continues browsing the server's address space at the specified position.
+            </summary>
+            <param name="maxElements">The maximum number of elements to return.</param>
+            <param name="position">The position object used to continue a browse operation.</param>
+            <returns>The set of elements that meet the filter criteria.</returns>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.GetEnumerator(System.Boolean)">
+            <summary>
+            Creates an enumerator for the elements contained with the current branch.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.GetFullBranchName(System.String)">
+            <summary>
+            Fetches the full branch name for the relative branch name
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.Browser.FetchElements(OpcCom.EnumString,System.Int32,System.Boolean)">
+            <summary>
+            Fetches the element names and item ids for each element.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.Browser.Filters">
+            <summary>
+            Returns the set of attribute filters used by the browser. 
+            </summary>
+        </member>
+        <member name="T:OpcCom.Hda.BrowsePosition">
+            <summary>
+            Stores the state of a browse operation that was halted.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Hda.BrowsePosition.#ctor(System.String,OpcCom.EnumString,System.Boolean)">
+            <summary>
+            Initializes a the object with the browse operation state information.
+            </summary>
+            <param name="branchPath">The item id of branch used in the browse operation.</param>
+            <param name="enumerator">The enumerator used for the browse operation.</param>
+            <param name="fetchingItems">Whether the enumerator is return branches or items.</param>
+        </member>
+        <member name="M:OpcCom.Hda.BrowsePosition.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.BrowsePosition.BranchPath">
+            <summary>
+            The item id of the branch being browsed.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.BrowsePosition.Enumerator">
+            <summary>
+            The enumerator that was in use when the browse halted.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Hda.BrowsePosition.FetchingItems">
+            <summary>
+            Whether the browse halted while fetching items.
+            </summary>
+        </member>
+        <member name="T:OpcCom.ConnectionPoint">
+            <summary>
+            Adds and removes a connection point to a server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.ConnectionPoint.m_server">
+            <summary>
+            The COM server that supports connection points.
+            </summary>
+        </member>
+        <member name="F:OpcCom.ConnectionPoint.m_cookie">
+            <summary>
+            The id assigned to the connection by the COM server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.ConnectionPoint.m_refs">
+            <summary>
+            The number of times Advise() has been called without a matching Unadvise(). 
+            </summary>
+        </member>
+        <member name="M:OpcCom.ConnectionPoint.#ctor(System.Object,System.Guid)">
+            <summary>
+            Initializes the object by finding the specified connection point.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ConnectionPoint.Dispose">
+            <summary>
+            Releases the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ConnectionPoint.Advise(System.Object)">
+            <summary>
+            Establishes a connection, if necessary and increments the reference count.
+            </summary>
+        </member>
+        <member name="M:OpcCom.ConnectionPoint.Unadvise">
+            <summary>
+            Decrements the reference count and closes the connection if no more references.
+            </summary>
+        </member>
+        <member name="P:OpcCom.ConnectionPoint.Cookie">
+            <summary> 
+            The cookie returned in the advise call. 
+            </summary> 
+        </member>
+        <member name="T:OpcCom.Da20.Server">
+            <summary>
+            An in-process wrapper for a remote OPC Data Access 2.0X server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.#ctor">
+            <summary>
+            The default constructor for the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.#ctor(Opc.URL,System.Object)">
+            <summary>
+            Initializes the object with the specifed COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.Initialize(Opc.URL,Opc.ConnectData)">
+            <summary>
+            Connects to the server with the specified URL and credentials.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da20.Server.m_group">
+            <summary>
+            A global group used for various item level operations. 
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da20.Server.m_groupHandle">
+            <summary>
+            The server handle for the global group.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da20.Server.m_separators">
+            <summary>
+            A list of seperators used in the browse paths.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.Read(Opc.Da.Item[])">
+            <summary>
+            Reads the values for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.Write(Opc.Da.ItemValue[])">
+            <summary>
+            Write the values for the specified items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.Browse(Opc.ItemIdentifier,Opc.Da.BrowseFilters,Opc.Da.BrowsePosition@)">
+            <summary>
+            Fetches child elements of the specified branch which match the filter criteria.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.BrowseNext(Opc.Da.BrowsePosition@)">
+            <summary>
+            Continues a browse operation with previously specified search criteria.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetProperties(Opc.ItemIdentifier[],Opc.Da.PropertyID[],System.Boolean)">
+            <summary>
+            Returns the specified properties for a set of items.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.AddItems(Opc.Da.Item[])">
+            <summary>
+            Adds a set of temporary items used for a read/write operation.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.RemoveItems(Opc.IdentifiedResult[])">
+            <summary>
+            Removes a set of temporary items used for a read/write operation.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.ReadValues(Opc.Da.Item[],Opc.Da.ItemValueResult[],System.Boolean)">
+            <summary>
+            Reads a set of values.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetAvailableProperties(System.String)">
+            <summary>
+            Returns the set of available properties for the item.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetItemIDs(System.String,Opc.Da.ItemProperty[])">
+            <summary>
+            Fetches the property item id for the specified set of properties.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetValues(System.String,Opc.Da.ItemProperty[])">
+            <summary>
+            Fetches the property values for the specified set of properties.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetProperties(System.String,Opc.Da.PropertyID[],System.Boolean)">
+            <summary>
+            Gets the specified properties for the specified item.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetEnumerator(System.String,Opc.Da.BrowseFilters,System.Boolean,System.Boolean)">
+            <summary>
+            Returns an enumerator for the children of the specified branch.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.DetectAndSaveSeparators(System.String,System.String)">
+            <summary>
+            Detects the separators used in the item id.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetElement(Opc.ItemIdentifier,System.String,Opc.Da.BrowseFilters,System.Boolean)">
+            <summary>
+            Reads a single value from the enumerator and returns a browse element.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.GetElements(System.Int32,Opc.ItemIdentifier,Opc.Da.BrowseFilters,System.Boolean,OpcCom.Da20.BrowsePosition@)">
+            <summary>
+            Returns a list of child elements that meet the filter criteria.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.Server.CreateSubscription(System.Object,Opc.Da.SubscriptionState,System.Int32)">
+            <summary>
+            Creates a new instance of a subscription.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da20.BrowsePosition">
+            <summary>
+            Implements an object that handles multi-step browse operations for DA2.05 servers.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da20.BrowsePosition.Enumerator">
+            <summary>
+            The enumerator for a browse operation.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da20.BrowsePosition.IsBranch">
+            <summary>
+            Whether the current enumerator returns branches or leaves.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da20.BrowsePosition.Names">
+            <summary>
+            The pre-fetched set of names.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da20.BrowsePosition.Index">
+            <summary>
+            The current index in the pre-fetched names.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.BrowsePosition.#ctor(Opc.ItemIdentifier,Opc.Da.BrowseFilters,OpcCom.EnumString,System.Boolean)">
+            <summary>
+            Initializes a browse position 
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.BrowsePosition.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da20.BrowsePosition.Clone">
+            <summary>
+            Creates a deep copy of the object.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Ae.ResultIDs">
+            <summary>
+            Defines all well known COM AE HRESULT codes.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.S_ALREADYACKED">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.S_INVALIDBUFFERTIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.S_INVALIDMAXSIZE">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.S_INVALIDKEEPALIVETIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.E_INVALIDBRANCHNAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.E_INVALIDTIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.E_BUSY">
+            <remarks/>
+        </member>
+        <member name="F:OpcCom.Ae.ResultIDs.E_NOINFO">
+            <remarks/>
+        </member>
+        <member name="T:OpcCom.Ae.Interop">
+            <summary>
+            Defines COM marshalling/unmarshalling functions for AE.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.Convert(System.Runtime.InteropServices.FILETIME)">
+            <summary>
+            Converts a standard FILETIME to an OpcRcw.Ae.FILETIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.Convert(OpcRcw.Ae.FILETIME)">
+            <summary>
+            Converts an OpcRcw.Ae.FILETIME to a standard FILETIME structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.GetResultID(System.Int32)">
+            <summary>
+            Converts the HRESULT to a system type.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.GetServerStatus(System.IntPtr@,System.Boolean)">
+            <summary>
+            Unmarshals and deallocates a OPCEVENTSERVERSTATUS structure.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.GetBrowseType(Opc.Ae.BrowseType)">
+            <summary>
+            Converts a NodeType value to the OPCAEBROWSETYPE equivalent.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.GetEventNotifications(OpcRcw.Ae.ONEVENTSTRUCT[])">
+            <summary>
+            Converts an array of ONEVENTSTRUCT structs to an array of EventNotification objects.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.GetEventNotification(OpcRcw.Ae.ONEVENTSTRUCT)">
+            <summary>
+            Converts a ONEVENTSTRUCT struct to a EventNotification object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Interop.GetConditions(System.IntPtr@,System.Int32,System.Boolean)">
+            <summary>
+            Converts an array of OpcRcw.Ae.OPCCONDITIONSTATE structs to an array of Opc.Ae.Condition objects.
+            </summary>
+        </member>
+        <member name="T:OpcCom.EnumGuid">
+            <summary>
+            Enumerates a set of GUIDs.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.#ctor(System.Object)">
+            <summary>
+            Saves a reference to the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.Release">
+            <summary>
+            releases the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.GetEnumerator">
+            <summary>
+            returns a reference to the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.GetAll">
+            <summary>
+            fetches all GUIDs. 
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.Next(System.Int32)">
+            <summary>
+            fetches next group of GUIDs. 
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.Skip(System.Int32)">
+            <summary>
+            skips elements.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.Reset">
+            <summary>
+            sets pointer to the start of the list.
+            </summary>
+        </member>
+        <member name="M:OpcCom.EnumGuid.Clone">
+            <summary>
+            clones the enumerator.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Da.Request">
+            <summary>
+            Contains the state of an asynchronous request to a COM server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Request.RequestID">
+            <summary>
+            The unique id assigned by the subscription.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Request.CancelID">
+            <summary>
+            The unique id assigned by the server.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Request.Callback">
+            <summary>
+            The callback used when the request completes.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Request.Filters">
+            <summary>
+            The result filters to use for the request.
+            </summary>
+        </member>
+        <member name="F:OpcCom.Da.Request.InitialResults">
+            <summary>
+            The set of initial results.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Request.#ctor(Opc.Da.ISubscription,System.Object,System.Int32,System.Int32,System.Delegate)">
+            <summary>
+            Initializes the object with a subscription and a unique id.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Request.BeginRead(System.Int32,Opc.IdentifiedResult[])">
+            <summary>
+            Begins a read request by storing the initial results.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Request.BeginWrite(System.Int32,Opc.IdentifiedResult[])">
+            <summary>
+            Begins a write request by storing the initial results.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Request.BeginRefresh(System.Int32)">
+            <summary>
+            Begins a refersh request by saving the cancel id.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Request.EndRequest">
+            <summary>
+            Completes a read request by processing the values and invoking the callback.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Request.EndRequest(Opc.Da.ItemValueResult[])">
+            <summary>
+            Completes a read request by processing the values and invoking the callback.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Da.Request.EndRequest(Opc.IdentifiedResult[])">
+            <summary>
+            Completes a write request by processing the values and invoking the callback.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Ae.Server">
+            <summary>
+            A .NET wrapper for a COM server that implements the AE server interfaces.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Server.#ctor(Opc.URL,System.Object)">
+            <summary>
+            Initializes the object with the specified URL and COM server.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Server.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Server.GetStatus">
+            <summary>
+            Returns the current server status.
+            </summary>
+            <returns>The current server status.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.CreateSubscription(Opc.Ae.SubscriptionState)">
+            <summary>
+            Creates a new event subscription.
+            </summary>
+            <param name="state">The initial state for the subscription.</param>
+            <returns>The new subscription object.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.QueryAvailableFilters">
+            <summary>
+            Returns the event filters supported by the server.
+            </summary>
+            <returns>A bit mask of all event filters supported by the server.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.QueryEventCategories(System.Int32)">
+            <summary>		
+            Returns the event categories supported by the server for the specified event types.
+            </summary>
+            <param name="eventType">A bit mask for the event types of interest.</param>
+            <returns>A collection of event categories.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.QueryConditionNames(System.Int32)">
+            <summary>
+            Returns the condition names supported by the server for the specified event categories.
+            </summary>
+            <param name="eventCategory">A bit mask for the event categories of interest.</param>
+            <returns>A list of condition names.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.QuerySubConditionNames(System.String)">
+            <summary>
+            Returns the sub-condition names supported by the server for the specified event condition.
+            </summary>
+            <param name="conditionName">The name of the condition.</param>
+            <returns>A list of sub-condition names.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.QueryConditionNames(System.String)">
+            <summary>
+            Returns the condition names supported by the server for the specified event source.
+            </summary>
+            <param name="sourceName">The name of the event source.</param>
+            <returns>A list of condition names.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.QueryEventAttributes(System.Int32)">
+            <summary>		
+            Returns the event attributes supported by the server for the specified event categories.
+            </summary>
+            <param name="eventCategory">A bit mask for the event categories of interest.</param>
+            <returns>A collection of event attributes.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.TranslateToItemIDs(System.String,System.Int32,System.String,System.String,System.Int32[])">
+            <summary>
+            Returns the DA item ids for a set of attribute ids belonging to events which meet the specified filter criteria.
+            </summary>
+            <param name="sourceName">The event source of interest.</param>
+            <param name="eventCategory">The id of the event category for the events of interest.</param>
+            <param name="conditionName">The name of a condition within the event category.</param>
+            <param name="subConditionName">The name of a sub-condition within a multi-state condition.</param>
+            <param name="attributeIDs">The ids of the attributes to return item ids for.</param>
+            <returns>A list of item urls for each specified attribute.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.GetConditionState(System.String,System.String,System.Int32[])">
+            <summary>
+            Returns the current state information for the condition instance corresponding to the source and condition name.
+            </summary>
+            <param name="sourceName">The source name</param>
+            <param name="conditionName">A condition name for the source.</param>
+            <param name="attributeIDs">The list of attributes to return with the condition state.</param>
+            <returns>The current state of the connection.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.EnableConditionByArea(System.String[])">
+            <summary>
+            Places the specified process areas into the enabled state.
+            </summary>
+            <param name="areas">A list of fully qualified area names.</param>
+            <returns>The results of the operation for each area.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.DisableConditionByArea(System.String[])">
+            <summary>
+            Places the specified process areas into the disabled state.
+            </summary>
+            <param name="areas">A list of fully qualified area names.</param>
+            <returns>The results of the operation for each area.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.EnableConditionBySource(System.String[])">
+            <summary>
+            Places the specified process areas into the enabled state.
+            </summary>
+            <param name="sources">A list of fully qualified source names.</param>
+            <returns>The results of the operation for each area.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.DisableConditionBySource(System.String[])">
+            <summary>
+            Places the specified process areas into the disabled state.
+            </summary>
+            <param name="sources">A list of fully qualified source names.</param>
+            <returns>The results of the operation for each area.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.GetEnableStateByArea(System.String[])">
+            <summary>
+            Returns the enabled state for the specified process areas. 
+            </summary>
+            <param name="areas">A list of fully qualified area names.</param>
+        </member>
+        <member name="M:OpcCom.Ae.Server.GetEnableStateBySource(System.String[])">
+            <summary>
+            Returns the enabled state for the specified event sources. 
+            </summary>
+            <param name="sources">A list of fully qualified source names.</param>
+        </member>
+        <member name="M:OpcCom.Ae.Server.AcknowledgeCondition(System.String,System.String,Opc.Ae.EventAcknowledgement[])">
+            <summary>
+            Used to acknowledge one or more conditions in the event server.
+            </summary>
+            <param name="acknowledgerID">The identifier for who is acknowledging the condition.</param>
+            <param name="comment">A comment associated with the acknowledgment.</param>
+            <param name="conditions">The conditions being acknowledged.</param>
+            <returns>A list of result id indictaing whether each condition was successfully acknowledged.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.Browse(System.String,Opc.Ae.BrowseType,System.String)">
+            <summary>
+            Browses for all children of the specified area that meet the filter criteria.
+            </summary>
+            <param name="areaID">The full-qualified id for the area.</param>
+            <param name="browseType">The type of children to return.</param>
+            <param name="browseFilter">The expression used to filter the names of children returned.</param>
+            <returns>The set of elements that meet the filter criteria.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.Browse(System.String,Opc.Ae.BrowseType,System.String,System.Int32,Opc.IBrowsePosition@)">
+            <summary>
+            Browses for all children of the specified area that meet the filter criteria.
+            </summary>
+            <param name="areaID">The full-qualified id for the area.</param>
+            <param name="browseType">The type of children to return.</param>
+            <param name="browseFilter">The expression used to filter the names of children returned.</param>
+            <param name="maxElements">The maximum number of elements to return.</param>
+            <param name="position">The object used to continue the browse if the number nodes exceeds the maximum specified.</param>
+            <returns>The set of elements that meet the filter criteria.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.BrowseNext(System.Int32,Opc.IBrowsePosition@)">
+            <summary>
+            Continues browsing the server's address space at the specified position.
+            </summary>
+            <param name="maxElements">The maximum number of elements to return.</param>
+            <param name="position">The position object used to continue a browse operation.</param>
+            <returns>The set of elements that meet the filter criteria.</returns>
+        </member>
+        <member name="M:OpcCom.Ae.Server.InitializeBrowser">
+            <summary>
+            Creates an area browser object for use by all browse requests.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Server.ChangeBrowsePosition(System.String)">
+            <summary>
+            Moves the browse position prior to executing a browse operation.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Server.CreateEnumerator(Opc.Ae.BrowseType,System.String)">
+            <summary>
+            Creates an enumerator for the names at the current position.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Server.GetQualifiedName(System.String,Opc.Ae.BrowseType)">
+            <summary>
+            Returns the qualified name for the node at the current position.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.Server.FetchElements(Opc.Ae.BrowseType,System.Int32,System.Runtime.InteropServices.UCOMIEnumString,System.Collections.ArrayList)">
+            <summary>
+            Fetches up to max elements and returns an flag indicating whether there are any elements left.
+            </summary>
+        </member>
+        <member name="T:OpcCom.Ae.BrowsePosition">
+            <summary>
+            Stores the state of a browse operation.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.BrowsePosition.#ctor(System.String,Opc.Ae.BrowseType,System.String,System.Runtime.InteropServices.UCOMIEnumString)">
+            <summary>
+            Saves the parameters for an incomplete browse information.
+            </summary>
+        </member>
+        <member name="M:OpcCom.Ae.BrowsePosition.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged resources held by the object.
+            </summary>
+        </member>
+        <member name="P:OpcCom.Ae.BrowsePosition.Enumerator">
+            <summary>
+            Returns the enumerator stored in the object.
+            </summary>
+        </member>
+    </members>
+</doc>

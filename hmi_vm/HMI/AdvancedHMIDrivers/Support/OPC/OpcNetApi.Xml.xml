@@ -1,0 +1,2105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpcNetApi.Xml</name>
+    </assembly>
+    <members>
+        <member name="T:OpcXml.Da.Wrapper.Server">
+            <summary>
+            A XML-DA server implementation that wraps a COM-DA server.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.IServer">
+            <summary>
+            Defines functionality that is common to all XML-DA OPC servers.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.GetStatus(System.String,System.String,Opc.Da.ServerStatus@)">
+            <summary>
+            Returns the current server status.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.Read(OpcXml.Da.RequestOptions,OpcXml.Da.ItemList,OpcXml.Da.ItemValueResultList@,OpcXml.Da.Error[]@)">
+            <summary>
+            Reads a set of items.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.Write(OpcXml.Da.RequestOptions,OpcXml.Da.ItemValueList,System.Boolean,OpcXml.Da.ItemValueResultList@,OpcXml.Da.Error[]@)">
+            <summary>
+            Writes a set of items and, if requested, returns the current values.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.Subscribe(OpcXml.Da.RequestOptions,OpcXml.Da.ItemList,System.TimeSpan,System.Boolean,System.String@,OpcXml.Da.ItemValueResultList@,OpcXml.Da.Error[]@)">
+            <summary>
+            Establishes a subscription for the set of items.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.PolledRefresh(OpcXml.Da.RequestOptions,System.String[],System.TimeSpan,System.TimeSpan,System.Boolean,System.String[]@,OpcXml.Da.ItemValueResultList[]@,OpcXml.Da.Error[]@,System.Boolean@)">
+            <summary>
+            Polls the server for the any item changes for one or more subscriptions.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.Unsubscribe(System.String)">
+            <summary>
+            Terminates one subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.Browse(System.String,System.String,System.Boolean,Opc.ItemIdentifier,Opc.Da.BrowseFilters,System.String@,System.Boolean@,Opc.Da.BrowseElement[]@,OpcXml.Da.Error[]@)">
+            <summary>
+            Returns a set of elements at the specified position and that meet the filter criteria.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.IServer.GetProperties(System.String,System.String,System.Boolean,Opc.ItemIdentifier[],Opc.Da.PropertyID[],System.String,System.Boolean,Opc.Da.ItemPropertyCollection[]@,OpcXml.Da.Error[]@)">
+            <summary>
+            Returns the specified properties for a set of items.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.IServer.SupportedLocales">
+            <summary>
+            Returns the set of supported locales.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.#ctor">
+            <summary>
+            Initializes the XML-DA server.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Dispose">
+            <summary>
+            Releases any unmanaged resources used by the server.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.WrapServer(System.String,Opc.Da.IServer,System.Boolean)">
+            <summary>
+            Connects to the server with the specified address.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.GetStatus(System.String,System.String,Opc.Da.ServerStatus@)">
+            <summary>
+            Returns the current server status.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Read(OpcXml.Da.RequestOptions,OpcXml.Da.ItemList,OpcXml.Da.ItemValueResultList@,OpcXml.Da.Error[]@)">
+            <summary>
+            Reads a set of items.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Write(OpcXml.Da.RequestOptions,OpcXml.Da.ItemValueList,System.Boolean,OpcXml.Da.ItemValueResultList@,OpcXml.Da.Error[]@)">
+            <summary>
+            Writes a set of items and, if requested, returns the current values.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Subscribe(OpcXml.Da.RequestOptions,OpcXml.Da.ItemList,System.TimeSpan,System.Boolean,System.String@,OpcXml.Da.ItemValueResultList@,OpcXml.Da.Error[]@)">
+            <summary>
+            Establishes a subscription for the set of items.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.PolledRefresh(OpcXml.Da.RequestOptions,System.String[],System.TimeSpan,System.TimeSpan,System.Boolean,System.String[]@,OpcXml.Da.ItemValueResultList[]@,OpcXml.Da.Error[]@,System.Boolean@)">
+            <summary>
+            Polls the server for the any item changes for one or more subscriptions.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Unsubscribe(System.String)">
+            <summary>
+            Terminates one or more subscriptions.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Browse(System.String,System.String,System.Boolean,Opc.ItemIdentifier,Opc.Da.BrowseFilters,System.String@,System.Boolean@,Opc.Da.BrowseElement[]@,OpcXml.Da.Error[]@)">
+            <summary>
+            Returns a set of elements at the specified position and that meet the filter criteria.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.BrowseRoot(Opc.Da.BrowseElement[],Opc.ItemIdentifier,Opc.Da.BrowseFilters,System.String,System.Boolean,Opc.Da.BrowsePosition@)">
+            <summary>
+            Returns the names of the wrapped servers.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.GetProperties(System.String,System.String,System.Boolean,Opc.ItemIdentifier[],Opc.Da.PropertyID[],System.String,System.Boolean,Opc.Da.ItemPropertyCollection[]@,OpcXml.Da.Error[]@)">
+            <summary>
+            Returns the specified properties for a set of items.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_servers">
+            <summary>
+            The set of COM servers being wrapped by the XML-DA server.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_primaryServer">
+            <summary>
+            The item path for the wrapped server that should be used for get status requests.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_status">
+            <summary>
+            The current status of the XML-DA server (distinct from the status of the COM-DA server).
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_pingTimer">
+            <summary>
+            A timer that clears out expired subscriptions.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_subscriptionPollTimes">
+            <summary>
+            A table of last pool times indexed by subscription handle.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_supportedLocales">
+            <summary>
+            The names of the locales supported by the server.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_resourceManager">
+            <summary>
+            The resource manager used to access localized resources.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_positions">
+            <summary>
+            Stores browse positions for incomplete browse operations.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_subscriptions">
+            <summary>
+            Currently active client subscriptions.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Wrapper.Server.m_remoteSubscriptions">
+            <summary>
+            Current remote subscriptions.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.GetString(System.String,System.String)">
+            <summary>
+            Returns a localized string with the specified name.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CreateReply(System.String,System.String)">
+            <summary>
+            Initializes a reply object.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CheckState(System.String,System.Boolean)">
+            <summary>
+            Checks that the server is aply to process requests.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CreateException(System.String,System.Xml.XmlQualifiedName)">
+            <summary>
+            Creates a SOAP exception for the specified error.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CreateException(System.String,System.Exception)">
+            <summary>
+            Creates a SOAP exception for the specified exception.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CheckDeadline(System.String,System.DateTime)">
+            <summary>
+            Verifies that the request deadline has been met.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.ApplyItemListDefaults(OpcXml.Da.ItemList)">
+            <summary>
+            Updates the item objects with values specified at the list level.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CheckDeadline(System.String,System.DateTime,System.Object)">
+            <summary>
+            Generates a list of error results if the deadline has already passed.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.ApplyOptions(System.String,OpcXml.Da.RequestOptions,System.Object)">
+            <summary>
+            Applies the request objects to the results.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.GetError(System.String,System.String,Opc.ResultID)">
+            <summary>
+            Constructs an error object for a result identifier.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.GetErrors(System.String,System.Object)">
+            <summary>
+            Constructs an error object for a result identifier.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CleanupSubscriptions(System.Object)">
+            <summary>
+            Cleans up any inactive subscriptions.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CancelSubscription(OpcXml.Da.Wrapper.Subscription)">
+            <summary>
+            Cancels a subscription and releases all resources.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.DataChanged(System.Object,System.Object,Opc.Da.ItemValueResult[])">
+            <summary>
+            Notify each subscription object that new data has arrived.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Read(System.String,System.String,Opc.Da.Item[],Opc.Da.ItemValueResult[])">
+            <summary>
+            Reads all items with the specifed item path.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.Write(System.String,System.String,Opc.Da.ItemValue[],System.Boolean,Opc.Da.ItemValueResult[])">
+            <summary>
+            Writes all items with the specifed item path.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.GetProperties(System.String,System.String,Opc.ItemIdentifier[],Opc.Da.PropertyID[],System.Boolean,Opc.Da.ItemPropertyCollection[])">
+            <summary>
+            Gets the properties with for specified items with the specifed item path.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CheckStringValue(Opc.Da.ItemValue)">
+            <summary>
+            Ensures that the item value contains valid data.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Server.CheckStringValue(Opc.Da.ItemProperty)">
+            <summary>
+            Ensures that the item property contains valid data.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Wrapper.Server.SupportedLocales">
+            <summary>
+            The names of the locales supported by the server.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.BrowsePosition">
+            <summary>
+            Implements an object that handles multi-step browse operations.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.BrowsePosition.ContinuationPoint">
+            <summary>
+            The continuation point for a browse operation.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.BrowsePosition.MoreElements">
+            <summary>
+            Indicates that elements that meet the filter criteria have not been returned.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.BrowsePosition.Locale">
+            <summary>
+            The the locale used for the browse operation.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.BrowsePosition.ReturnErrorText">
+            <summary>
+            Whether localized error texts should be reurned with the browse results.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.BrowsePosition.#ctor(Opc.ItemIdentifier,Opc.Da.BrowseFilters,System.String,System.Boolean)">
+            <summary>
+            Initializes a browse posistion 
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.RootBrowsePosition">
+            <summary>
+            Implements an object that handles multi-step browse operations at root
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.RootBrowsePosition.Names">
+            <summary>
+            The names of servers at root.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.RootBrowsePosition.Index">
+            <summary>
+            The index in the names array.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.RootBrowsePosition.#ctor(Opc.ItemIdentifier,Opc.Da.BrowseFilters,System.String,System.Boolean)">
+            <summary>
+            Initializes a browse posistion 
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da10.Service">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.GetStatus(System.String,System.String,OpcXml.Da10.ServerStatus@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginGetStatus(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndGetStatus(System.IAsyncResult,OpcXml.Da10.ServerStatus@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.Read(OpcXml.Da10.RequestOptions,OpcXml.Da10.ReadRequestItemList,OpcXml.Da10.ReplyItemList@,OpcXml.Da10.OPCError[]@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginRead(OpcXml.Da10.RequestOptions,OpcXml.Da10.ReadRequestItemList,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndRead(System.IAsyncResult,OpcXml.Da10.ReplyItemList@,OpcXml.Da10.OPCError[]@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.Write(OpcXml.Da10.RequestOptions,OpcXml.Da10.WriteRequestItemList,System.Boolean,OpcXml.Da10.ReplyItemList@,OpcXml.Da10.OPCError[]@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginWrite(OpcXml.Da10.RequestOptions,OpcXml.Da10.WriteRequestItemList,System.Boolean,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndWrite(System.IAsyncResult,OpcXml.Da10.ReplyItemList@,OpcXml.Da10.OPCError[]@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.Subscribe(OpcXml.Da10.RequestOptions,OpcXml.Da10.SubscribeRequestItemList,System.Boolean,System.Int32,OpcXml.Da10.SubscribeReplyItemList@,OpcXml.Da10.OPCError[]@,System.String@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginSubscribe(OpcXml.Da10.RequestOptions,OpcXml.Da10.SubscribeRequestItemList,System.Boolean,System.Int32,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndSubscribe(System.IAsyncResult,OpcXml.Da10.SubscribeReplyItemList@,OpcXml.Da10.OPCError[]@,System.String@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.SubscriptionPolledRefresh(OpcXml.Da10.RequestOptions,System.String[],System.DateTime,System.Boolean,System.Int32,System.Boolean,System.String[]@,OpcXml.Da10.SubscribePolledRefreshReplyItemList[]@,OpcXml.Da10.OPCError[]@,System.Boolean@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginSubscriptionPolledRefresh(OpcXml.Da10.RequestOptions,System.String[],System.DateTime,System.Boolean,System.Int32,System.Boolean,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndSubscriptionPolledRefresh(System.IAsyncResult,System.String[]@,OpcXml.Da10.SubscribePolledRefreshReplyItemList[]@,OpcXml.Da10.OPCError[]@,System.Boolean@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.SubscriptionCancel(System.String,System.String@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginSubscriptionCancel(System.String,System.String,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndSubscriptionCancel(System.IAsyncResult,System.String@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.Browse(System.Xml.XmlQualifiedName[],System.String,System.String,System.String,System.String,System.String@,System.Int32,OpcXml.Da10.browseFilter,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,OpcXml.Da10.BrowseElement[]@,OpcXml.Da10.OPCError[]@,System.Boolean@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginBrowse(System.Xml.XmlQualifiedName[],System.String,System.String,System.String,System.String,System.String,System.Int32,OpcXml.Da10.browseFilter,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndBrowse(System.IAsyncResult,System.String@,OpcXml.Da10.BrowseElement[]@,OpcXml.Da10.OPCError[]@,System.Boolean@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.GetProperties(OpcXml.Da10.ItemIdentifier[],System.Xml.XmlQualifiedName[],System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,OpcXml.Da10.PropertyReplyList[]@,OpcXml.Da10.OPCError[]@)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.BeginGetProperties(OpcXml.Da10.ItemIdentifier[],System.Xml.XmlQualifiedName[],System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.AsyncCallback,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Service.EndGetProperties(System.IAsyncResult,OpcXml.Da10.PropertyReplyList[]@,OpcXml.Da10.OPCError[]@)">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ReplyBase">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReplyBase.RcvTime">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReplyBase.ReplyTime">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReplyBase.ClientRequestHandle">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReplyBase.RevisedLocaleID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReplyBase.ServerState">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.serverState">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.serverState.running">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.serverState.failed">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.serverState.noConfig">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.serverState.suspended">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.serverState.test">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.serverState.commFault">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.PropertyReplyList">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.PropertyReplyList.Properties">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.PropertyReplyList.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.PropertyReplyList.ItemName">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.PropertyReplyList.ResultID">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ItemProperty">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemProperty.Value">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemProperty.Name">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemProperty.Description">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemProperty.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemProperty.ItemName">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemProperty.ResultID">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ItemIdentifier">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemIdentifier.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemIdentifier.ItemName">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.BrowseElement">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.BrowseElement.Properties">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.BrowseElement.Name">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.BrowseElement.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.BrowseElement.ItemName">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.BrowseElement.IsItem">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.BrowseElement.HasChildren">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.SubscribePolledRefreshReplyItemList">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribePolledRefreshReplyItemList.Items">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribePolledRefreshReplyItemList.SubscriptionHandle">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ItemValue">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.DiagnosticInfo">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.Value">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.Quality">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.ItemName">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.ClientItemHandle">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.Timestamp">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.TimestampSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.ResultID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ItemValue.ValueTypeQualifier">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.OPCQuality">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.OPCQuality.QualityField">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.OPCQuality.LimitField">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.OPCQuality.VendorField">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.qualityBits">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.bad">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badConfigurationError">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badNotConnected">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badDeviceFailure">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badSensorFailure">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badLastKnownValue">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badCommFailure">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badOutOfService">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.badWaitingForInitialData">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.uncertain">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.uncertainLastUsableValue">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.uncertainSensorNotAccurate">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.uncertainEUExceeded">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.uncertainSubNormal">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.good">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.qualityBits.goodLocalOverride">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.limitBits">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.limitBits.none">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.limitBits.low">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.limitBits.high">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.limitBits.constant">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.SubscribeItemValue">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeItemValue.ItemValue">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeItemValue.RevisedSamplingRate">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeItemValue.RevisedSamplingRateSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.SubscribeReplyItemList">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeReplyItemList.Items">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeReplyItemList.RevisedSamplingRate">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeReplyItemList.RevisedSamplingRateSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.SubscribeRequestItem">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.ReqType">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.ItemName">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.ClientItemHandle">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.Deadband">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.DeadbandSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.RequestedSamplingRate">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.RequestedSamplingRateSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.EnableBuffering">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItem.EnableBufferingSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.SubscribeRequestItemList">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.Items">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.ReqType">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.Deadband">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.DeadbandSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.RequestedSamplingRate">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.RequestedSamplingRateSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.EnableBuffering">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.SubscribeRequestItemList.EnableBufferingSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.WriteRequestItemList">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.WriteRequestItemList.Items">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.WriteRequestItemList.ItemPath">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.OPCError">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.OPCError.Text">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.OPCError.ID">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ReplyItemList">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReplyItemList.Items">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReplyItemList.Reserved">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ReadRequestItem">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItem.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItem.ReqType">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItem.ItemName">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItem.ClientItemHandle">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItem.MaxAge">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItem.MaxAgeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ReadRequestItemList">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItemList.Items">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItemList.ItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItemList.ReqType">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItemList.MaxAge">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ReadRequestItemList.MaxAgeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.RequestOptions">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.RequestDeadline">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.RequestDeadlineSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.ReturnErrorText">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.ReturnDiagnosticInfo">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.ReturnItemTime">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.ReturnItemPath">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.ReturnItemName">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.ClientRequestHandle">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.RequestOptions.LocaleID">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.ServerStatus">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ServerStatus.StatusInfo">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ServerStatus.VendorInfo">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ServerStatus.SupportedLocaleIDs">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ServerStatus.SupportedInterfaceVersions">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ServerStatus.StartTime">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.ServerStatus.ProductVersion">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.interfaceVersion">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.interfaceVersion.XML_DA_Version_1_0">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da10.browseFilter">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.browseFilter.all">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.browseFilter.branch">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da10.browseFilter.item">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da.Wrapper.Subscription">
+            <summary>
+            Manages an item value cache for a subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Subscription.#ctor(System.String,System.TimeSpan)">
+            <summary>
+            Initializes the cache with a table of servers, a handle and a ping time.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Subscription.Initialize(Opc.Da.ItemResult[],OpcXml.Da.SubscribeItemValueResult[])">
+            <summary>
+            Initializes the cache with the initial set of results. 
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Subscription.HasExpired">
+            <summary>
+            Checks if the subcription has expired.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Subscription.GetItems">
+            <summary>
+            Returns the current set of item values.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Subscription.GetItemValues(System.Boolean)">
+            <summary>
+            Returns the current set of item values.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.Subscription.OnDataChanged(Opc.Da.ItemValueResult[])">
+            <summary>
+            Called when data updates are received from the server.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Wrapper.Subscription.Handle">
+            <summary>
+            The unique handle assigned to the subscription.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Wrapper.Subscription.PingTime">
+            <summary>
+            The ping time used for the subscription.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da10.Request">
+            <summary>
+            Contains state information for a single asynchronous request.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetRelativeTime(System.DateTime)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetRequestOptions(OpcXml.Da10.RequestOptions)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetRequestOptions(System.String,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetReplyBase(System.String,OpcXml.Da.ReplyBase)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetErrors(OpcXml.Da.Error[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetErrors(OpcXml.Da10.OPCError[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultID(System.Xml.XmlQualifiedName)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultID(Opc.ResultID)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetBrowseFilter(Opc.Da.browseFilter)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetBrowseFilter(OpcXml.Da10.browseFilter)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetPropertyIDs(System.Xml.XmlQualifiedName[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetPropertyID(System.Xml.XmlQualifiedName)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetPropertyNames(Opc.Da.PropertyID[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetPropertyName(Opc.Da.PropertyID)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetBrowseElements(OpcXml.Da10.BrowseElement[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetBrowseElements(Opc.Da.BrowseElement[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetBrowseElement(OpcXml.Da10.BrowseElement)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetBrowseElement(Opc.Da.BrowseElement)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemProperty(OpcXml.Da10.ItemProperty)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemProperty(Opc.Da.ItemProperty)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.MarshalPropertyValue(Opc.Da.PropertyID,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.UnmarshalPropertyValue(Opc.Da.PropertyID,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetType(System.Type)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetType(System.Xml.XmlQualifiedName)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemIdentifiers(OpcXml.Da10.ItemIdentifier[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemIdentifiers(Opc.ItemIdentifier[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemPropertyCollections(OpcXml.Da10.PropertyReplyList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemPropertyCollections(Opc.Da.ItemPropertyCollection[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetServerState(OpcXml.Da10.serverState)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetServerState(Opc.Da.serverState)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetServerStatus(OpcXml.Da10.ReplyBase,OpcXml.Da10.ServerStatus)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetServerStatus(Opc.Da.ServerStatus,System.String[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeLists(OpcXml.Da10.SubscribeRequestItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeLists(OpcXml.Da.ItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeList(OpcXml.Da10.SubscribeRequestItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeList(OpcXml.Da.ItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeItem(OpcXml.Da10.SubscribeRequestItem)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeItem(Opc.Da.Item)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeRefreshLists(OpcXml.Da10.SubscribePolledRefreshReplyItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeRefreshLists(OpcXml.Da.ItemValueResultList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeRefreshList(OpcXml.Da10.SubscribePolledRefreshReplyItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeRefreshList(OpcXml.Da.ItemValueResultList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemLists(OpcXml.Da10.ReadRequestItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemLists(OpcXml.Da.ItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemList(OpcXml.Da10.ReadRequestItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemList(OpcXml.Da.ItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItem(OpcXml.Da10.ReadRequestItem)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItem(Opc.Da.Item)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemValueLists(OpcXml.Da10.WriteRequestItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemValueLists(OpcXml.Da.ItemValueList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemValueList(OpcXml.Da10.WriteRequestItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemValueList(OpcXml.Da.ItemValueList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemValue(OpcXml.Da10.ItemValue)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetItemValue(Opc.Da.ItemValue)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultLists(OpcXml.Da10.ReplyItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultLists(OpcXml.Da.ItemValueResultList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultList(OpcXml.Da10.ReplyItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultList(OpcXml.Da.ItemValueResultList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultItem(OpcXml.Da10.ItemValue)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetResultItem(Opc.Da.ItemValueResult)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeResultLists(OpcXml.Da10.SubscribeReplyItemList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeResultLists(OpcXml.Da.ItemValueResultList[])">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeResultList(OpcXml.Da10.SubscribeReplyItemList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeResultList(OpcXml.Da.ItemValueResultList)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeResultItem(OpcXml.Da10.SubscribeItemValue)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetSubscribeResultItem(OpcXml.Da.SubscribeItemValueResult)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetQuality(OpcXml.Da10.OPCQuality)">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da10.Request.GetQuality(Opc.Da.Quality)">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Factory">
+            <summary>
+            A class used to instantiate XML server object.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Factory.#ctor">
+            <summary>
+            Initializes an instance to auto-detect the COM server.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Factory.#ctor(System.Type,System.Boolean)">
+            <summary>
+            Initializes an instance with the specified system type.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Factory.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Contructs a server by de-serializing its URL from the stream.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Factory.CreateInstance(Opc.URL,Opc.ConnectData)">
+            <summary>
+            Creates a new instance of the server.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.Subscription">
+            <summary>
+            A subscription for a set of items on a single XML-DA server.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.#ctor(OpcXml.Da.Server,OpcXml.Da10.Service,Opc.Da.SubscriptionState,System.Int32)">
+            <summary>
+            Initializes a new instance of a subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Dispose">
+            <summary>
+            Releases any unmanaged resources used by the subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.GetResultFilters">
+            <summary>
+            Returns the filters applied by the server to any item results returned to the client.
+            </summary>
+            <returns>A bit mask indicating which fields should be returned in any item results.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.SetResultFilters(System.Int32)">
+            <summary>
+            Sets the filters applied by the server to any item results returned to the client.
+            </summary>
+            <param name="filters">A bit mask indicating which fields should be returned in any item results.</param>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.GetState">
+            <summary>
+            Returns the current state of the subscription.
+            </summary>
+            <returns>The current state of the subscription.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.ModifyState(System.Int32,Opc.Da.SubscriptionState)">
+            <summary>
+            Changes the state of a subscription.
+            </summary>
+            <param name="masks">A bit mask that indicates which elements of the subscription state are changing.</param>
+            <param name="state">The new subscription state.</param>
+            <returns>The actual subscption state after applying the changes.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.AddItems(Opc.Da.Item[])">
+            <summary>
+            Adds items to the subscription.
+            </summary>
+            <param name="items">The set of items to add to the subscription.</param>
+            <returns>The results of the add item operation for each item.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.ModifyItems(System.Int32,Opc.Da.Item[])">
+            <summary>
+            Modifies the state of items in the subscription
+            </summary>
+            <param name="masks">Specifies which item state parameters are being modified.</param>
+            <param name="items">The new state for each item.</param>
+            <returns>The results of the modify item operation for each item.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.RemoveItems(Opc.ItemIdentifier[])">
+            <summary>
+            Removes items from the subscription.
+            </summary>
+            <param name="items">The identifiers (i.e. server handles) for the items being removed.</param>
+            <returns>The results of the remove item operation for each item.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Read(Opc.Da.Item[])">
+            <summary>
+            Reads the values for a set of items in the subscription.
+            </summary>
+            <param name="items">The identifiers (i.e. server handles) for the items being read.</param>
+            <returns>The value for each of items.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Write(Opc.Da.ItemValue[])">
+            <summary>
+            Writes the value, quality and timestamp for a set of items in the subscription.
+            </summary>
+            <param name="items">The item values to write.</param>
+            <returns>The results of the write operation for each item.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Read(Opc.Da.Item[],System.Object,Opc.Da.ReadCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Begins an asynchronous read operation for a set of items.
+            </summary>
+            <param name="items">The set of items to read (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Write(Opc.Da.ItemValue[],System.Object,Opc.Da.WriteCompleteEventHandler,Opc.IRequest@)">
+            <summary>
+            Begins an asynchronous write operation for a set of items.
+            </summary>
+            <param name="items">The set of item values to write (must include the server handle).</param>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="callback">A delegate used to receive notifications when the request completes.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Cancel(Opc.IRequest,Opc.Da.CancelCompleteEventHandler)">
+            <summary>
+            Cancels an asynchronous read or write operation.
+            </summary>
+            <param name="request">The object returned from the BeginRead or BeginWrite request.</param>
+            <param name="callback">The function to invoke when the cancel completes.</param>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Refresh">
+            <summary>
+            Causes the server to send a data changed notification for all active items. 
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Refresh(System.Object,Opc.IRequest@)">
+            <summary>
+            Causes the server to send a data changed notification for all active items. 
+            </summary>
+            <param name="requestHandle">An identifier for the request assigned by the caller.</param>
+            <param name="request">An object that contains the state of the request (used to cancel the request).</param>
+            <returns>A set of results containing any errors encountered when the server validated the items.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.SetEnabled(System.Boolean)">
+            <summary>
+            Enables or disables data change notifications from the server.
+            </summary>
+            <param name="enabled">Whether data change notifications are enabled.</param> 
+        </member>
+        <member name="M:OpcXml.Da.Subscription.GetEnabled">
+            <summary>
+            Checks whether data change notifications from the server are enabled.
+            </summary>
+            <returns>Whether data change notifications are enabled.</returns>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_pingRate">
+            <summary>
+            The maximum time between polled refreshes.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_enabled">
+            <summary>
+            Whether the subscription is currently enabled.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_items">
+            <summary>
+            An ordered list of all items which are part of the subscription.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_pollTimer">
+            <summary>
+            A timer used to schedule polled refreshes.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_counter">
+            <summary>
+            A counter used to create unique subscription names.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_server">
+            <summary>
+            The containing server object.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_proxy">
+            <summary>
+            The autogenerated proxy object for the XML-DA 1.0 web service.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_filters">
+            <summary>
+            The current subscription result filters options.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Subscription.m_state">
+            <summary>
+            The current subscription state.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.OnDataChange(OpcXml.Da.ItemValueResultList)">
+            <summary>
+            Sends data change notifications for all active items.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Subscribe(System.Collections.ArrayList)">
+            <summary>
+            Establishes a subscription for the current set of items.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Unsubscribe">
+            <summary>
+            Closes the current subscription with the server.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.OnPollCompleted(System.IAsyncResult)">
+            <summary>
+            Called when a poll completes.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.SchedulePoll">
+            <summary>
+            Starts polling for the current subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Subscription.Poll(System.Object)">
+            <summary>
+            Starts polling for the current subscription.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Subscription.Server">
+            <summary>
+            The server that the subscription is attached to.
+            </summary>
+        </member>
+        <member name="E:OpcXml.Da.Subscription.DataChanged">
+            <summary>
+            An event to receive data change updates.
+            </summary>
+        </member>
+        <member name="E:OpcXml.Da.Subscription.m_callback">
+            <summary>
+            The event raised when data change events occur.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.Server">
+            <summary>
+            An in-process wrapper for a remote OPC XML-DA server (not thread safe).
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Server.#ctor">
+            <summary>
+            Initializes the object.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Server.Dispose">
+            <summary>
+            This must be called explicitly by clients to ensure the COM server is released.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Server.Initialize(Opc.URL,Opc.ConnectData)">
+            <summary>
+            Connects to the server with the specified URL and credentials.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Server.Uninitialize">
+            <summary>
+            Disconnects from the server and releases all network resources.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Server.GetLocale">
+            <summary>
+            The locale used in any error messages or results returned to the client.
+            </summary>
+            <returns>The locale name in the format "[languagecode]-[country/regioncode]".</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.SetLocale(System.String)">
+            <summary>
+            Sets the locale used in any error messages or results returned to the client.
+            </summary>
+            <param name="locale">The locale name in the format "[languagecode]-[country/regioncode]".</param>
+            <returns>A locale that the server supports and is the best match for the requested locale.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.GetSupportedLocales">
+            <summary>
+            Returns the locales supported by the server
+            </summary>
+            <remarks>The first element in the array must be the default locale for the server.</remarks>
+            <returns>An array of locales with the format "[languagecode]-[country/regioncode]".</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.GetErrorText(System.String,Opc.ResultID)">
+            <summary>
+            Returns the localized text for the specified result code.
+            </summary>
+            <param name="locale">The locale name in the format "[languagecode]-[country/regioncode]".</param>
+            <param name="resultID">The result code identifier.</param>
+            <returns>A message localized for the best match for the requested locale.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.GetResultFilters">
+            <summary>
+            Returns the filters applied by the server to any item results returned to the client.
+            </summary>
+            <returns>A bit mask indicating which fields should be returned in any item results.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.SetResultFilters(System.Int32)">
+            <summary>
+            Sets the filters applied by the server to any item results returned to the client.
+            </summary>
+            <param name="filters">A bit mask indicating which fields should be returned in any item results.</param>
+        </member>
+        <member name="M:OpcXml.Da.Server.GetStatus">
+            <summary>
+            Returns the current server status.
+            </summary>
+            <returns>The current server status.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.Read(Opc.Da.Item[])">
+            <summary>
+            Reads the current values for a set of items. 
+            </summary>
+            <param name="items">The set of items to read.</param>
+            <returns>The results of the read operation for each item.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.Write(Opc.Da.ItemValue[])">
+            <summary>
+            Writes the value, quality and timestamp for a set of items.
+            </summary>
+            <param name="items">The set of item values to write.</param>
+            <returns>The results of the write operation for each item.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.CreateSubscription(Opc.Da.SubscriptionState)">
+            <summary>
+            Creates a new subscription.
+            </summary>
+            <param name="state">The initial state of the subscription.</param>
+            <returns>The new subscription object.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.CancelSubscription(Opc.Da.ISubscription)">
+            <summary>
+            Creates a new instance of the appropriate subcription object.
+            </summary>
+            <param name="subscription">The remote subscription object.</param>
+        </member>
+        <member name="M:OpcXml.Da.Server.Browse(Opc.ItemIdentifier,Opc.Da.BrowseFilters,Opc.Da.BrowsePosition@)">
+            <summary>
+            Fetches the children of a branch that meet the filter criteria.
+            </summary>
+            <param name="itemID">The identifier of branch which is the target of the search.</param>
+            <param name="filters">The filters to use to limit the set of child elements returned.</param>
+            <param name="position">An object used to continue a browse that could not be completed.</param>
+            <returns>The set of elements found.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.BrowseNext(Opc.Da.BrowsePosition@)">
+            <summary>
+            Continues a browse operation with previously specified search criteria.
+            </summary>
+            <param name="position">An object containing the browse operation state information.</param>
+            <returns>The set of elements found.</returns>
+        </member>
+        <member name="M:OpcXml.Da.Server.GetProperties(Opc.ItemIdentifier[],Opc.Da.PropertyID[],System.Boolean)">
+            <summary>
+            Returns the item properties for a set of items.
+            </summary>
+            <param name="itemIDs">A list of item identifiers.</param>
+            <param name="propertyIDs">A list of properties to fetch for each item.</param>
+            <param name="returnValues">Whether the property values should be returned with the properties.</param>
+            <returns>A list of properties for each item.</returns>
+        </member>
+        <member name="F:OpcXml.Da.Server.m_proxy">
+            <summary>
+            The autogenerated proxy object for the XML-DA 1.0 web service.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Server.m_url">
+            <summary>
+            The URL referencing the web service.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Server.m_options">
+            <summary>
+            The default reqeust options for the server.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Server.m_timebias">
+            <summary>
+            Keeps track of the difference between the server clock and the local clock.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Server.m_lastUpdateTime">
+            <summary>
+            The last time an update was received from the server.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Server.m_messageTables">
+            <summary>
+            Stores tables of error messages indexed by locale.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Server.CacheResponse(System.String,OpcXml.Da10.ReplyBase,OpcXml.Da10.OPCError[])">
+            <summary>
+            Caches error messages and request statistics after each request.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Server.PollCompleted(System.String,OpcXml.Da10.ReplyBase,OpcXml.Da10.OPCError[])">
+            <summary>
+            Called when a subscription receives a polled refresh response.
+            </summary>
+        </member>
+        <member name="E:OpcXml.Da.Server.ServerShutdown">
+            <summary>
+            An event to receive server shutdown notifications.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Server.ServerTime">
+            <summary>
+            Returns an estimate of the UTC time at the server.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.Wrapper.RemoteSubscription">
+            <summary>
+            Manages an item value cache for a subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.RemoteSubscription.#ctor">
+            <summary>
+            Initializes the object.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.RemoteSubscription.Initialize(System.String,System.Collections.Hashtable,OpcXml.Da.ItemList,OpcXml.Da.SubscribeItemValueResult[],System.Boolean,Opc.Da.ItemResult[])">
+            <summary>
+            Initializes the object by creating the remote subscription. 
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.RemoteSubscription.AddItems(OpcXml.Da.ItemList,OpcXml.Da.SubscribeItemValueResult[],System.Boolean,Opc.Da.ItemResult[])">
+            <summary>
+            Adds items to the subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.RemoteSubscription.RemoveItems(Opc.ItemIdentifier[])">
+            <summary>
+            Removes items from the subscription.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.RemoteSubscription.Dispose">
+            <summary>
+            Disposes of the subscription and disposes all contained cache objects.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.Wrapper.RemoteSubscription.OnIncomingDataChanged(System.Object,System.Object,Opc.Da.ItemValueResult[])">
+            <summary>
+            Handles data changed events from the remote server.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Wrapper.RemoteSubscription.ItemPath">
+            <summary>
+            The item path which identifies the remote server which handles the subscription.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Wrapper.RemoteSubscription.UpdateRate">
+            <summary>
+            The update rate for the subscription.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.Wrapper.RemoteSubscription.Deadband">
+            <summary>
+            The nominal deadband for the subscription.
+            </summary>
+        </member>
+        <member name="E:OpcXml.Da.Wrapper.RemoteSubscription.DataChanged">
+            <summary>
+            A event raised when a new data change update arrives from the remote server.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.SubscribeItemValueResult">
+            <summary>
+            A XML-DA specific item value result that is used for subscriptions.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.SubscribeItemValueResult.SamplingRate">
+            <summary>
+            The actual sampling rate used for items in a subscription.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.SubscribeItemValueResult.SamplingRateSpecified">
+            <remarks/>
+        </member>
+        <member name="M:OpcXml.Da.SubscribeItemValueResult.#ctor">
+            <summary>
+            Initializes the object with the default values;
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.SubscribeItemValueResult.#ctor(Opc.ItemIdentifier)">
+            <summary>
+            Initializes the object with an ItemIdentifier object.
+            </summary>
+        </member>
+        <member name="M:OpcXml.Da.SubscribeItemValueResult.#ctor(Opc.Da.ItemValue)">
+            <summary>
+            Initializes the object with an ItemValue object.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.List">
+            <summary>
+            Contains properties that uniquely identify an OPC item list. 
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.List.Name">
+            <summary>
+            An optional identifier for an item list.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.List.ClientHandle">
+            <summary>
+            A unique list identifier assigned by the client.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.List.ServerHandle">
+            <summary>
+            A unique list identifier assigned by the server.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.ItemList">
+            <summary>
+            Contain a list of items and default values for properties used to access an OPC item.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.ItemPath">
+            <summary>
+            The default item path for items in the list.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.ReqType">
+            <summary>
+            The default data type to use when reading items in the list.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.MaxAge">
+            <summary>
+            The default maximum age to use when reading items in the list.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.MaxAgeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.Deadband">
+            <summary>
+            The default deadband to use when subscribing to the items in the list.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.DeadbandSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.SamplingRate">
+            <summary>
+            The default sampling rate to use when subscribing to the items in the list.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.SamplingRateSpecified">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.EnableBuffering">
+            <summary>
+            The default buffering behavior to use when subscribing to the items in the list.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemList.EnableBufferingSpecified">
+            <remarks/>
+        </member>
+        <member name="P:OpcXml.Da.ItemList.Item(System.Int32)">
+            <summary>
+            Accesses the item at the specified index.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.ItemValueResultList">
+            <summary>
+            Contains a list of item results and revised default values for item access properties.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemValueResultList.SamplingRate">
+            <summary>
+            The actual sampling rate used for items in a subscription.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ItemValueResultList.SamplingRateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:OpcXml.Da.ItemValueResultList.Item(System.Int32)">
+            <summary>
+            Accesses the items at the specified index.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.ItemValueList">
+            <summary>
+            Contains a list of item values.
+            </summary>
+        </member>
+        <member name="P:OpcXml.Da.ItemValueList.Item(System.Int32)">
+            <summary>
+            Accesses the items at the specified index.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.Type">
+            <summary>
+            Defines constants for all supported XML-DA types.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Type.ANY_TYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.SBYTE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.BYTE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.SHORT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.USHORT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.INT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.UINT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.LONG">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ULONG">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.FLOAT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.DOUBLE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.DECIMAL">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.DATETIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.TIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.DATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.DURATION">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.BOOLEAN">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.STRING">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.QNAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.BINARY">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_SBYTE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_BYTE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_SHORT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_USHORT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_INT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_UINT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_LONG">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_ULONG">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_FLOAT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_DOUBLE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_DECIMAL">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_DATETIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_BOOLEAN">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_STRING">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Type.ARRAY_ANY_TYPE">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da.RequestOptions">
+            <summary>
+            The standard return parameter for XML-DA server methods.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.RequestOptions.RequestHandle">
+            <summary>
+            A request handle assigned by client.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.RequestOptions.RequestDeadline">
+            <summary>
+            The maximum time a server should wait before returning whatever results it has.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.RequestOptions.Locale">
+            <summary>
+            The locale to used for strings in the results.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.RequestOptions.Filters">
+            <summary>
+            The filters to apply to returned results.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.ReplyBase">
+            <summary>
+            The standard return parameter for XML-DA server methods.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ReplyBase.RcvTime">
+            <summary>
+            The UTC time a request arrives at the server.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ReplyBase.ReplyTime">
+            <summary>
+            The UTC time a response is returned from the server.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ReplyBase.ClientRequestHandle">
+            <summary>
+            The request handle assigned by the client.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ReplyBase.RevisedLocaleID">
+            <summary>
+            The actual locale id used by the server.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.ReplyBase.ServerState">
+            <summary>
+            The current state of the server.
+            </summary>
+        </member>
+        <member name="T:OpcXml.Da.Error">
+            <summary>
+            Contains the localized text for a result code.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Error.ID">
+            <summary>
+            The unique id for the result code.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Error.Text">
+            <summary>
+            The localized verbose message,
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_FAIL">
+            <summary>
+            All errors that are defined in the XML-DA specification.
+            </summary>summary>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_OUTOFMEMORY">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_SERVERSTATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_TIMEDOUT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_BUSY">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_INVALIDCONTINUATIONPOINT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_INVALIDFILTER">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_NOSUBSCRIPTION">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_INVALIDHOLDTIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_UNKNOWNITEMNAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_INVALIDITEMNAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_UNKNOWNITEMPATH">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_INVALIDITEMPATH">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_NOTSUPPORTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_BADTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_RANGE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_READONLY">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_WRITEONLY">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_INVALIDPID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.S_FALSE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.S_CLAMP">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.S_UNSUPPORTEDRATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.S_DATAQUEUEOVERFLOW">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_TYPE_CHANGED">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_FILTER_DUPLICATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_FILTER_INVALID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.E_FILTER_ERROR">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Error.S_FILTER_NO_DATA">
+            <remarks/>
+        </member>
+        <member name="T:OpcXml.Da.Property">
+            <summary>
+            Defines identifiers for well-known properties.
+            </summary>
+        </member>
+        <member name="F:OpcXml.Da.Property.DATATYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.VALUE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.QUALITY">
+            <remarks/>    
+        </member>
+        <member name="F:OpcXml.Da.Property.TIMESTAMP">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.ACCESSRIGHTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.SCANRATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.EUTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.EUINFO">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.ENGINEERINGUINTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.DESCRIPTION">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.HIGHEU">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.LOWEU">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.HIGHIR">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.LOWIR">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.CLOSELABEL">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.OPENLABEL">
+            <remarks/>     
+        </member>
+        <member name="F:OpcXml.Da.Property.TIMEZONE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.CONDITION_STATUS">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.ALARM_QUICK_HELP">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.ALARM_AREA_LIST">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.PRIMARY_ALARM_AREA">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.CONDITION_LOGIC">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.LIMIT_EXCEEDED">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.DEADBAND">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.HIHI_LIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.HI_LIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.LO_LIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.LOLO_LIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.RATE_CHANGE_LIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.DEVIATION_LIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.SOUNDFILE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.TYPE_SYSTEM_ID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.DICTIONARY_ID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.TYPE_ID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.DICTIONARY">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.TYPE_DESCRIPTION">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.CONSISTENCY_WINDOW">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.WRITE_BEHAVIOR">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.UNCONVERTED_ITEM_ID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.UNFILTERED_ITEM_ID">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.DATA_FILTER_VALUE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.MINIMUM_VALUE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.MAXIMUM_VALUE">
+            <remarks/>
+        </member>
+        <member name="F:OpcXml.Da.Property.VALUE_PRECISION">
+            <remarks/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,10 @@
+﻿1,Motor Overloaded,Yellow,Black
+2,UnderLayer Side Saftey Door Open -OR- Material Choke in Screw Feed,Red,White
+3,UL Carrier Alarm
+4,FM Carrier Alarm
+5,Poke or Level Alarm
+6,Auto Checker Alarm
+7,Press Alarm
+8,FM Side Safety Door Open
+10,Control Panel or Reject Mix Door Open
+14,Feed System Alarm

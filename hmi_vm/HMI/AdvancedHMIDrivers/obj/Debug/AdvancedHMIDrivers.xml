@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AdvancedHMIDrivers
+</name>
+</assembly>
+<members>
+<member name="T:AdvancedHMIDrivers.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AdvancedHMIDrivers.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AdvancedHMIDrivers.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:AdvancedHMIDrivers.IniParser.#ctor(System.String)">
+ <summary>
+ Opens the INI file at the given path and enumerates the values in the IniParser.
+ </summary>
+ <param name="iniPath">Full path to INI file.</param>
+</member>
+<member name="M:AdvancedHMIDrivers.IniParser.GetSetting(System.String,System.String)">
+ <summary>
+ Returns the value for the given section, key pair.
+ </summary>
+ <param name="sectionName">Section name.</param>
+</member>
+<member name="M:AdvancedHMIDrivers.IniParser.AddSetting(System.String,System.String,System.String)">
+ <summary>
+ Adds or replaces a setting to the table to be saved.
+ </summary>
+ <param name="sectionName">Section to add under.</param>
+ <param name="settingName">Key name to add.</param>
+ <param name="settingValue">Value of key.</param>
+</member>
+<member name="M:AdvancedHMIDrivers.IniParser.AddSetting(System.String,System.String)">
+ <summary>
+ Adds or replaces a setting to the table to be saved with a null value.
+ </summary>
+ <param name="sectionName">Section to add under.</param>
+ <param name="settingName">Key name to add.</param>
+</member>
+<member name="M:AdvancedHMIDrivers.IniParser.DeleteSetting(System.String,System.String)">
+ <summary>
+ Remove a setting.
+ </summary>
+ <param name="sectionName">Section to add under.</param>
+ <param name="settingName">Key name to add.</param>
+</member>
+<member name="M:AdvancedHMIDrivers.IniParser.SaveSettings(System.String)">
+ <summary>
+ Save settings to new file.
+ </summary>
+ <param name="newFilePath">New file path.</param>
+</member>
+<member name="M:AdvancedHMIDrivers.IniParser.SaveSettings">
+ <summary>
+ Save settings back to ini file.
+ </summary>
+</member>
+</members>
+</doc>

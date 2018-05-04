@@ -1,0 +1,32 @@
+AdvancedHMI is released as open source solution under the GPL License. AdvancedHMI's growth
+relies on continued distribution. As the user base grows so does the support and features.
+The GPL distriution model is intended to benefit us all.
+
+In order to avoid the need to comb through vast amounts of legal jargon,
+the following is a quick summary on using the software.
+
+1) You can use AdvancedHMI to build HMIs for in house machinery or machinery you sell
+2) It is an open source project and must remain that way, which means if you build an
+   HMI and sell the machine, the customer has the right to ALL of the source code just
+   as much as you did. If you need to distribute under a closed source license, you may
+   contact us about purchasing a license.
+3) The graphics are copyrighted and only to be associated with AdvancedHMI.
+4) You can NOT use AdvancedHMI to develop your own HMI development software and sell
+   it under another name (re-branding)
+5) AdvancedHMI must be distributed in full. You cannot remove parts or use pieces in another project
+6) The included DLLs can be freely redistributed with HMI applications. NOTE: These files are not
+   released under a GPL license.
+
+
+If you wish to use AdvancedHMI outside of those basic rules, then you may contact us
+and see if we can come up with a written agreement.
+
+Something heavily frowned upon is trying to keep the source code from the customer. If anyone
+has ever worked in a plant and must maintain machinery software, they know there is
+nothing more irritating then a locked out PLC and HMI that will not allow you to make
+something as simple as a quick change.
+
+The recommended practice is to create a directory named "source" on the target PC and copy
+the complete VB project in that directory, then create a shortcut to the executable file
+found in the \bin directory.
+
