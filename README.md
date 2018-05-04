@@ -1,2 +1,2 @@
-# grfvics
-Graphical Realism Framework for Virtual Industrial Control Systems
+# GRFICS
+Graphical Realism Framework for Industrial Control Simulations
