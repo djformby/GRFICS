@@ -8,7 +8,7 @@ Formby, D., Rad, M., and Beyah, R. Lowering the Barriers to Industrial Control S
 
 ### Overview
 
-The current version of GRFICS is organized as 3 VirtualBox VMs (a 3D simulation, a soft PLC, and an HMI) communicating with each other on a host-only virtual network. For a more detailed explanation of the entire framework and some background information on ICS networks, please refer to the workshop paper located at [https://www.usenix.org/conference/ase18/presentation/formby]
+The current version of GRFICS is organized as 3 VirtualBox VMs (a 3D simulation, a soft PLC, and an HMI) communicating with each other on a host-only virtual network. For a more detailed explanation of the entire framework and some background information on ICS networks, please refer to the workshop paper located at https://www.usenix.org/conference/ase18/presentation/formby
 
 ### Simulation
 
@@ -17,11 +17,11 @@ The simulation VM runs a realistic simulation of a chemical process reaction tha
 
 ### Programmable Logic Controller
 
-The PLC VM is a modified version of OpenPLC ([https://github.com/thiagoralves/OpenPLC_v2]) that uses an older version of the libmodbus library with known buffer overflow vulnerabilities. 
+The PLC VM is a modified version of OpenPLC (https://github.com/thiagoralves/OpenPLC_v2) that uses an older version of the libmodbus library with known buffer overflow vulnerabilities. 
 
 ### Human Machine Interface
 
-The HMI VM primarily contains an operator HMI created using the free AdvancedHMI ([https://www.advancedhmi.com]) software. This HMI is used to monitor the process measurements being collected by the PLC and send commands to the PLC.
+The HMI VM primarily contains an operator HMI created using the free AdvancedHMI (https://www.advancedhmi.com) software. This HMI is used to monitor the process measurements being collected by the PLC and send commands to the PLC.
 ![hmi](figures/hmi.png)
 
 In addition to the HMI, this VM also contains the PLCOpenEditor software used to reprogram the OpenPLC.
@@ -29,9 +29,16 @@ In addition to the HMI, this VM also contains the PLCOpenEditor software used to
 ### Instructions
 
 Recommended hardware:
+
 25GB free hard drive space
+
 8GB RAM
+
 Quad core processor
+
+You can either install from scratch or download pre-built VMs from my Google Drive. 
+
+#### Installing from scratch
 
 1. Download and install the latest version of VirtualBox from https://www.virtualbox.org/wiki/Downloads
 
@@ -40,3 +47,33 @@ Quad core processor
 3. Download an image for both the desktop and server versions of 64-bit Ubuntu 16.04 from http://releases.ubuntu.com/16.04/
 
 4. See instructions for each VM in corresponding directories
+
+#### Pre-built VMs
+
+1. Download VMs:
+https://drive.google.com/open?id=1M3yRafNxwBEkDcTw-53tJ32U1BTV0RMt
+https://drive.google.com/open?id=1wVlafG7y0ghiA1qkGRVqBEiLLt0Fs2RV
+https://drive.google.com/open?id=1XJY-3v67Qwdbta_PS0hRstCyG4BqvrvT
+
+2. Add a host-only adapter in VirtualBox with IP address 192.168.95.1 and 255.255.255.0 netmask (https://www.virtualbox.org/manual/ch06.html#network_hostonly)
+
+3. Import each VM into VirtualBox using File->Import Appliance
+
+4. Every VM can be logged into with username "user" and password "password"
+
+5. Log into the simulation VM and open 3 terminals. In one, run "sudo simulation/simulation", in another run "sudo bash simulation/remote_io/run_all.sh", and the last terminal run "sudo ./HMI_Simulation_Ubuntu1604_06_x86_64.x86_64"
+
+6. Log into plc VM and run "sudo nodejs OpenPLC_v2/server.js"
+
+7. Log into hmi VM and run "wine HMI/AdvancedHMI.exe"
+
+
+### Copyright and Licensing Description
+
+AdvancedHMI and OpenPLC were both originally released under the GPL license and as such, we provide our modifications and source under GPL as well.
+
+We also provide our own backend simulation and remote IO code under the GPL license, but can only provide the compiled Unity executable due to the licensing requirements of the 3D models.
+
+### Questions and Suggestions
+
+Please contact David Formby at dformby@fortiphyd.com for any questions or suggestions.
