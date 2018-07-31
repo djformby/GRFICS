@@ -61,11 +61,13 @@ https://drive.google.com/open?id=1XJY-3v67Qwdbta_PS0hRstCyG4BqvrvT
 
 4. Every VM can be logged into with username "user" and password "password"
 
-5. Log into the simulation VM and open 3 terminals. In one, run "sudo simulation/simulation", in another run "sudo bash simulation/remote_io/run_all.sh", and the last terminal run "sudo ./HMI_Simulation_Ubuntu1604_06_x86_64.x86_64"
+5. Log into the simulation VM and open 2 terminals. In one, cd into the "HMI_Simulation_Ubuntu1604_15_x86_64" directory and run "sudo ./HMI_Simulation_Ubuntu1604_15_x86_64.x86_64". 
+Enter "/home/user/simulation/simulation" for the path to the simulation code, click "Run Server" and then click "Start". 
+In the second terminal, cd into the simulation/remote_io directory and run "sudo bash run_all.sh"
 
-6. Log into plc VM and run "sudo nodejs OpenPLC_v2/server.js"
+6. Log into plc VM, cd into the OpenPLC_v2 directory, and run "sudo nodejs server.js"
 
-7. Log into hmi VM and run "wine HMI/AdvancedHMI.exe"
+7. Log into hmi VM, cd into the HMI directory, and run "wine HMI/AdvancedHMI.exe"
 
 
 ### Copyright and Licensing Description

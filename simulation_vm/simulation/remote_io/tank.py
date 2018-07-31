@@ -55,8 +55,12 @@ def updating_writer(a):
     # import pdb; pdb.set_trace()
     s.send('{"request":"read"}')
     data = json.loads(s.recv(1500))
-    pressure = int(data["outputs"]["pressure"]/3000.0*65535)
+    pressure = int(data["outputs"]["pressure"]/3200.0*65535)
     level = int(data["outputs"]["liquid_level"]/100.0*65535)
+    if pressure > 65535:
+        pressure = 65535
+    if level > 65525:
+        level = 65535
     print data
 
     # import pdb; pdb.set_trace()
