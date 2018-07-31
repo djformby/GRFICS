@@ -52,8 +52,8 @@ You can either install from scratch or download pre-built VMs from my Google Dri
 
 1. Download VMs:
 https://drive.google.com/open?id=1M3yRafNxwBEkDcTw-53tJ32U1BTV0RMt
-https://drive.google.com/open?id=1wVlafG7y0ghiA1qkGRVqBEiLLt0Fs2RV
-https://drive.google.com/open?id=1XJY-3v67Qwdbta_PS0hRstCyG4BqvrvT
+https://drive.google.com/open?id=1ZN7u_WPUGHsEeos09NITpLImbeU9LKpI
+https://drive.google.com/open?id=1rBq3WDCrnrH_6jBOkrHi6EAOBX6kXhhe
 
 2. Add a host-only adapter in VirtualBox with IP address 192.168.95.1 and 255.255.255.0 netmask (https://www.virtualbox.org/manual/ch06.html#network_hostonly)
 
