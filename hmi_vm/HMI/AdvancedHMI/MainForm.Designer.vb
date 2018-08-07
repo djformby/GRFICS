@@ -62,11 +62,6 @@ Partial Class MainForm
         Me.BasicLabel12 = New AdvancedHMIControls.BasicLabel()
         Me.BasicLabel13 = New AdvancedHMIControls.BasicLabel()
         Me.DataSubscriber1 = New AdvancedHMIControls.DataSubscriber(Me.components)
-        Me.AnalogValueDisplay9 = New AdvancedHMIControls.AnalogValueDisplay()
-        Me.KeyboardInput1 = New AdvancedHMIControls.KeyboardInput()
-        Me.PilotLight1 = New AdvancedHMIControls.PilotLight()
-        Me.PilotLight2 = New AdvancedHMIControls.PilotLight()
-        Me.BasicLabel14 = New AdvancedHMIControls.BasicLabel()
         CType(Me.ModbusTCPCom1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSubscriber1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -1149,142 +1144,11 @@ Partial Class MainForm
         Me.DataSubscriber1.PLCAddressValue = CType(resources.GetObject("DataSubscriber1.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
         Me.DataSubscriber1.Value = Nothing
         '
-        'AnalogValueDisplay9
-        '
-        Me.AnalogValueDisplay9.AutoSize = True
-        Me.AnalogValueDisplay9.ComComponent = Me.ModbusTCPCom1
-        Me.AnalogValueDisplay9.ForeColor = System.Drawing.Color.White
-        Me.AnalogValueDisplay9.ForeColorInLimits = System.Drawing.Color.White
-        Me.AnalogValueDisplay9.ForeColorOverLimit = System.Drawing.Color.Red
-        Me.AnalogValueDisplay9.ForeColorUnderLimit = System.Drawing.Color.Yellow
-        Me.AnalogValueDisplay9.KeypadFontColor = System.Drawing.Color.WhiteSmoke
-        Me.AnalogValueDisplay9.KeypadMaxValue = 0R
-        Me.AnalogValueDisplay9.KeypadMinValue = 0R
-        Me.AnalogValueDisplay9.KeypadPasscode = Nothing
-        Me.AnalogValueDisplay9.KeypadScaleFactor = 1.0R
-        Me.AnalogValueDisplay9.KeypadText = Nothing
-        Me.AnalogValueDisplay9.KeypadWidth = 300
-        Me.AnalogValueDisplay9.Location = New System.Drawing.Point(669, 526)
-        Me.AnalogValueDisplay9.MaximumSize = New System.Drawing.Size(58, 18)
-        Me.AnalogValueDisplay9.Name = "AnalogValueDisplay9"
-        Me.AnalogValueDisplay9.NumericFormat = Nothing
-        Me.AnalogValueDisplay9.PLCAddressKeypad = ""
-        Me.AnalogValueDisplay9.PLCAddressValue = CType(resources.GetObject("AnalogValueDisplay9.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
-        Me.AnalogValueDisplay9.PLCAddressValueLimitLower = Nothing
-        Me.AnalogValueDisplay9.PLCAddressValueLimitUpper = Nothing
-        Me.AnalogValueDisplay9.PLCAddressVisible = Nothing
-        Me.AnalogValueDisplay9.ShowValue = True
-        Me.AnalogValueDisplay9.Size = New System.Drawing.Size(44, 18)
-        Me.AnalogValueDisplay9.TabIndex = 109
-        Me.AnalogValueDisplay9.Text = "0000"
-        Me.AnalogValueDisplay9.Value = "0000"
-        Me.AnalogValueDisplay9.ValueLimitLower = -999999.0R
-        Me.AnalogValueDisplay9.ValueLimitUpper = 999999.0R
-        Me.AnalogValueDisplay9.ValuePrefix = Nothing
-        Me.AnalogValueDisplay9.ValueSuffix = Nothing
-        Me.AnalogValueDisplay9.VisibleControl = AdvancedHMIControls.AnalogValueDisplay.VisibleControlEnum.Always
-        '
-        'KeyboardInput1
-        '
-        Me.KeyboardInput1.ClearAfterEnterKey = True
-        Me.KeyboardInput1.ComComponent = Me.ModbusTCPCom1
-        Me.KeyboardInput1.GetFocusMatchValue = 1
-        Me.KeyboardInput1.GetFocusValue = 0
-        Me.KeyboardInput1.Location = New System.Drawing.Point(563, 523)
-        Me.KeyboardInput1.Name = "KeyboardInput1"
-        Me.KeyboardInput1.PLCAddressGetFocusValue = Nothing
-        Me.KeyboardInput1.PLCAddressWriteValue = CType(resources.GetObject("KeyboardInput1.PLCAddressWriteValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
-        Me.KeyboardInput1.Size = New System.Drawing.Size(100, 26)
-        Me.KeyboardInput1.TabIndex = 112
-        '
-        'PilotLight1
-        '
-        Me.PilotLight1.Blink = False
-        Me.PilotLight1.ComComponent = Me.ModbusTCPCom1
-        Me.PilotLight1.LegendPlate = MfgControl.AdvancedHMI.Controls.PilotLight.LegendPlates.Large
-        Me.PilotLight1.LightColor = MfgControl.AdvancedHMI.Controls.PilotLight.LightColors.Green
-        Me.PilotLight1.LightColorOff = MfgControl.AdvancedHMI.Controls.PilotLight.LightColors.White
-        Me.PilotLight1.Location = New System.Drawing.Point(157, 426)
-        Me.PilotLight1.Name = "PilotLight1"
-        Me.PilotLight1.OutputType = MfgControl.AdvancedHMI.Controls.OutputType.SetTrue
-        Me.PilotLight1.PLCAddressClick = "00001"
-        Me.PilotLight1.PLCAddressText = ""
-        Me.PilotLight1.PLCAddressValue = "00001"
-        Me.PilotLight1.PLCAddressVisible = ""
-        Me.PilotLight1.Size = New System.Drawing.Size(75, 110)
-        Me.PilotLight1.TabIndex = 113
-        Me.PilotLight1.Text = "Run"
-        Me.PilotLight1.Value = True
-        Me.PilotLight1.ValueToWrite = 1
-        '
-        'PilotLight2
-        '
-        Me.PilotLight2.Blink = False
-        Me.PilotLight2.ComComponent = Me.ModbusTCPCom1
-        Me.PilotLight2.LegendPlate = MfgControl.AdvancedHMI.Controls.PilotLight.LegendPlates.Large
-        Me.PilotLight2.LightColor = MfgControl.AdvancedHMI.Controls.PilotLight.LightColors.White
-        Me.PilotLight2.LightColorOff = MfgControl.AdvancedHMI.Controls.PilotLight.LightColors.Red
-        Me.PilotLight2.Location = New System.Drawing.Point(52, 426)
-        Me.PilotLight2.Name = "PilotLight2"
-        Me.PilotLight2.OutputType = MfgControl.AdvancedHMI.Controls.OutputType.SetFalse
-        Me.PilotLight2.PLCAddressClick = "00001"
-        Me.PilotLight2.PLCAddressText = ""
-        Me.PilotLight2.PLCAddressValue = "00001"
-        Me.PilotLight2.PLCAddressVisible = ""
-        Me.PilotLight2.Size = New System.Drawing.Size(75, 110)
-        Me.PilotLight2.TabIndex = 114
-        Me.PilotLight2.Text = "Stop"
-        Me.PilotLight2.Value = False
-        Me.PilotLight2.ValueToWrite = 0
-        '
-        'BasicLabel14
-        '
-        Me.BasicLabel14.AutoSize = True
-        Me.BasicLabel14.BackColor = System.Drawing.Color.Black
-        Me.BasicLabel14.BooleanDisplay = AdvancedHMIControls.BasicLabel.BooleanDisplayOption.TrueFalse
-        Me.BasicLabel14.ComComponent = Me.ModbusTCPCom1
-        Me.BasicLabel14.DisplayAsTime = False
-        Me.BasicLabel14.ForeColor = System.Drawing.Color.White
-        Me.BasicLabel14.Highlight = False
-        Me.BasicLabel14.HighlightColor = System.Drawing.Color.Red
-        Me.BasicLabel14.HighlightForeColor = System.Drawing.Color.White
-        Me.BasicLabel14.HighlightKeyCharacter = "!"
-        Me.BasicLabel14.InterpretValueAsBCD = False
-        Me.BasicLabel14.KeypadAlphaNumeric = False
-        Me.BasicLabel14.KeypadFont = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.BasicLabel14.KeypadFontColor = System.Drawing.Color.WhiteSmoke
-        Me.BasicLabel14.KeypadMaxValue = 0R
-        Me.BasicLabel14.KeypadMinValue = 0R
-        Me.BasicLabel14.KeypadScaleFactor = 1.0R
-        Me.BasicLabel14.KeypadShowCurrentValue = False
-        Me.BasicLabel14.KeypadText = Nothing
-        Me.BasicLabel14.KeypadWidth = 300
-        Me.BasicLabel14.Location = New System.Drawing.Point(522, 502)
-        Me.BasicLabel14.Name = "BasicLabel14"
-        Me.BasicLabel14.NumericFormat = Nothing
-        Me.BasicLabel14.PLCAddressKeypad = ""
-        Me.BasicLabel14.PollRate = 0
-        Me.BasicLabel14.Size = New System.Drawing.Size(218, 18)
-        Me.BasicLabel14.TabIndex = 115
-        Me.BasicLabel14.Text = "Product Flow Setpoint [kmol/h]"
-        Me.BasicLabel14.Value = "Product Flow Setpoint [kmol/h]"
-        Me.BasicLabel14.ValueLeftPadCharacter = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.BasicLabel14.ValueLeftPadLength = 0
-        Me.BasicLabel14.ValuePrefix = Nothing
-        Me.BasicLabel14.ValueScaleFactor = 1.0R
-        Me.BasicLabel14.ValueSuffix = Nothing
-        Me.BasicLabel14.ValueToSubtractFrom = 0!
-        '
         'MainForm
         '
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(784, 561)
-        Me.Controls.Add(Me.BasicLabel14)
-        Me.Controls.Add(Me.PilotLight2)
-        Me.Controls.Add(Me.PilotLight1)
-        Me.Controls.Add(Me.KeyboardInput1)
-        Me.Controls.Add(Me.AnalogValueDisplay9)
         Me.Controls.Add(Me.BasicLabel13)
         Me.Controls.Add(Me.BasicLabel12)
         Me.Controls.Add(Me.BasicLabel11)
@@ -1371,9 +1235,4 @@ Partial Class MainForm
     Friend WithEvents BasicLabel12 As AdvancedHMIControls.BasicLabel
     Friend WithEvents BasicLabel13 As AdvancedHMIControls.BasicLabel
     Friend WithEvents DataSubscriber1 As AdvancedHMIControls.DataSubscriber
-    Friend WithEvents AnalogValueDisplay9 As AdvancedHMIControls.AnalogValueDisplay
-    Friend WithEvents KeyboardInput1 As AdvancedHMIControls.KeyboardInput
-    Friend WithEvents PilotLight1 As AdvancedHMIControls.PilotLight
-    Friend WithEvents PilotLight2 As AdvancedHMIControls.PilotLight
-    Friend WithEvents BasicLabel14 As AdvancedHMIControls.BasicLabel
 End Class

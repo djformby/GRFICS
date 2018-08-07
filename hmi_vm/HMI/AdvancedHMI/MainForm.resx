@@ -151,12 +151,6 @@
   <data name="DataSubscriber1.PLCAddressValue" type="MfgControl.AdvancedHMI.Drivers.PLCAddressItem, MfgControl.AdvancedHMI.Drivers">
     <value>41046,1,test,,0.00305,0</value>
   </data>
-  <data name="AnalogValueDisplay9.PLCAddressValue" type="MfgControl.AdvancedHMI.Drivers.PLCAddressItem, MfgControl.AdvancedHMI.Drivers">
-    <value>41025,1,,,0.00916,0</value>
-  </data>
-  <data name="KeyboardInput1.PLCAddressWriteValue" type="MfgControl.AdvancedHMI.Drivers.PLCAddressItem, MfgControl.AdvancedHMI.Drivers">
-    <value>41025</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>38</value>
   </metadata>

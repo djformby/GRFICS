@@ -80,11 +80,11 @@
 
     End Sub
 
-    Private Sub KeyboardInput1_TextChanged(sender As Object, e As EventArgs) Handles KeyboardInput1.TextChanged
+    Private Sub KeyboardInput1_TextChanged(sender As Object, e As EventArgs) 
 
     End Sub
 
-    Private Sub PilotLight1_Click(sender As Object, e As EventArgs) Handles PilotLight1.Click
+    Private Sub PilotLight1_Click(sender As Object, e As EventArgs) 
 
     End Sub
 End Class
