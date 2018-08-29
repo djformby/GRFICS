@@ -1,0 +1,50 @@
+GRFICS Modbus Mapping
+
+REMOTE MODBUS IO DEVICES
+192.168.95.10 - feed 1
+	holding register 1 - valve position set point 0-65535, where 0 is closed and 65535 is open
+	input regiser 1 - valve position reading
+	input register 2 - flow rate through valve
+	
+192.168.95.11 - feed 2
+	holding register 1 - valve position set point
+	input regiser 1 - valve position reading
+	input register 2 - flow rate through valve
+	
+192.168.95.12 - purge valve
+	holding register 1 - valve position set point
+	input regiser 1 - valve position reading
+	input register 2 - flow rate through valve
+	
+192.168.95.13 - product valve
+	holding register 1 - valve position set point
+	input regiser 1 - valve position reading
+	input register 2 - flow rate through valve
+
+192.168.95.14 - tank
+	input register 1 - pressure
+	input register 2 - level
+	
+192.168.95.15 - analyzer
+	input registers 1-3 composition of gases in reactor
+	
+	
+	
+	
+	
+	
+The PLC polls all of the remote IO, uses the measurements for its control algorithm, 
+and reports scaled values back to the HMI (192.168.95.3) for display
+
+192.168.95.2 - PLC
+	holding registers being polled by HMI
+		1044 - reactor pressure
+		1045 - reactor liquid level
+		1046 - feed 1 valve position
+		1047 - feed 1 flow rate
+		1048 - feed 2 valve position
+		1049 - feed 2 flow rate
+		1050 - purge valve position
+		1051 - purge flow rate
+		1052 - product valve position
+		1053 - product flow rate
