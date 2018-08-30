@@ -51,9 +51,19 @@ You can either install from scratch or download pre-built VMs from my Google Dri
 #### Pre-built VMs
 
 1. Download VMs:
+
+PLC VM (MD5 checksum 1ac605177bb81a64b500a8a203edfbe6):
+
 https://drive.google.com/open?id=1M3yRafNxwBEkDcTw-53tJ32U1BTV0RMt
+
+Simulation VM (MD5 checksum e59b65222d9da143fe13118635caa1d5):
+
 https://drive.google.com/open?id=1ZN7u_WPUGHsEeos09NITpLImbeU9LKpI
+
+HMI VM (MD5 checksum 6c27e87c742d75580c1bd05119e0d348):
+
 https://drive.google.com/open?id=1MJpiA-yt89xgTCYVJocddhE4_OUvvWG4
+
 2. Add a host-only adapter in VirtualBox with IP address 192.168.95.1 and 255.255.255.0 netmask (https://www.virtualbox.org/manual/ch06.html#network_hostonly)
 
 3. Import each VM into VirtualBox using File->Import Appliance
