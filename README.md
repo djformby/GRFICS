@@ -21,7 +21,7 @@ The PLC VM is a modified version of OpenPLC (https://github.com/thiagoralves/Ope
 
 ### Human Machine Interface
 
-The HMI VM primarily contains an operator HMI created using the free AdvancedHMI (https://www.advancedhmi.com) software. This HMI is used to monitor the process measurements being collected by the PLC and send commands to the PLC.
+The HMI VM primarily contains an operator HMI created using the free AdvancedHMI (https://www.advancedhmi.com) software. This HMI is used to monitor the process measurements being collected by the PLC and send commands to the PLC. NOTE: start/stop buttons and flow rate input have been removed temporarily because even benign user behavior would blow up the reactor. I am working to fix this.
 ![hmi](figures/hmi.png)
 
 In addition to the HMI, this VM also contains the PLCOpenEditor software used to reprogram the OpenPLC.
