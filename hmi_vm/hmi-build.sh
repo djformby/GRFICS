@@ -1,5 +1,5 @@
 #!/bin/bash
-useradd $user -m -U -s /bin/bash
+useradd user -m -U -s /bin/bash
 usermod -aG sudo user
 echo "root:password" | chpasswd
 echo "user:password" | chpasswd
