@@ -2,7 +2,7 @@
 echo 127.0.0.1 $(hostname) >> /etc/hosts
 echo 52.247.160.149 git.cybbh.space >> /etc/hosts
 sed -i's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-export DEBIAN_FRONTEND=noninteractive\n\
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get -y upgrade
 apt-get -y install locate dnsutils lsof freerdp
