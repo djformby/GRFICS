@@ -9,9 +9,9 @@ apt-get -y install locate dnsutils lsof freerdp
 apt-get -y install vim-gtk subversion wine build-essential pkg-config bison flex autoconf automake libtool make nodejs git
 svn export https://github.com/djformby/GRFICS/trunk/simulation_vm
 mv simulation_vm /home/user
-cd /home/user/simulation_vm
-unzip HMI_Simulation_Ubuntu1604_15_x86_64.zip
-cd /home/user/simulation_vm/HMI_Simulation_Ubuntu1604_15_x86_64
+cd /home/user/
+unzip simulation_vm/HMI_Simulation_Ubuntu1604_15_x86_64.zip
+cd /home/user/HMI_Simulation_Ubuntu1604_15_x86_64
 bash ./build.sh
 useradd $user -m -U -s /bin/bash
 usermod -aG sudo $user
