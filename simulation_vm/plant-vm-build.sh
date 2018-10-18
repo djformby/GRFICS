@@ -11,8 +11,6 @@ svn export https://github.com/djformby/GRFICS/trunk/simulation_vm
 mv simulation_vm /home/user
 cd /home/user/
 unzip simulation_vm/HMI_Simulation_Ubuntu1604_15_x86_64.zip
-cd /home/user/HMI_Simulation_Ubuntu1604_15_x86_64
-bash ./build.sh
 useradd $user -m -U -s /bin/bash
 usermod -aG sudo $user
 echo "root:$password" | chpasswd
