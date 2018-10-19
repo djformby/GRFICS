@@ -41,12 +41,11 @@ cp ./core_builders/build_modbus.sh ../build_core.sh
 echo [LIBMODBUS]
 cd ..
 cd libmodbus-3.0.4
-./autogen.sh
-./configure
+sudo ./autogen.sh
+sudo ./configure
 sudo make install
 sudo ldconfig
 echo [OPENPLC]
 cd ..
 ./build_core.sh
 exit
-
