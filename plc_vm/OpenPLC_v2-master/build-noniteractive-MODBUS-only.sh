@@ -47,5 +47,5 @@ sudo make install
 sudo ldconfig
 echo [OPENPLC]
 cd ..
-./build_core.sh
+sudo bash ./build_core.sh
 exit
