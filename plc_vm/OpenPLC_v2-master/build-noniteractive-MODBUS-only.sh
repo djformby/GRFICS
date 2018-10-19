@@ -41,7 +41,7 @@ cp ./core_builders/build_modbus.sh ../build_core.sh
 echo [LIBMODBUS]
 cd ..
 cd libmodbus-3.0.4
-sudo ./autogen.sh
+sudo bash ./autogen.sh
 sudo ./configure
 sudo make install
 sudo ldconfig
