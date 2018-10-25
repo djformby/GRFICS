@@ -96,8 +96,9 @@ int waitForClient(int socket_fd)
 //-----------------------------------------------------------------------------
 int listenToClient(int client_fd, unsigned char *buffer)
 {
-	bzero(buffer, 1024);
-	int n = read(client_fd, buffer, 1024);
+	// MODIFIED changed 1024 buffer size to 260
+	bzero(buffer, 260);
+	int n = read(client_fd, buffer, 260);
 	return n;
 }
 
@@ -116,7 +117,8 @@ void processMessage(unsigned char *buffer, int bufferSize, int client_fd)
 void *handleConnections(void *arguments)
 {
 	int client_fd = *(int *)arguments;
-	unsigned char buffer[1024];
+	//unsigned char buffer[1024]; MODIFIED changed to smaller buffer to make overflow easier
+	unsigned char buffer[260];
 	int messageSize;
 
 	printf("Server: Thread created for client ID: %d\n", client_fd);
@@ -127,7 +129,7 @@ void *handleConnections(void *arguments)
 		//int messageSize;
 
 		messageSize = listenToClient(client_fd, buffer);
-		if (messageSize <= 0 || messageSize > 1024)
+		if (messageSize <= 0 || messageSize > 260)
 		{
 			// something has  gone wrong or the client has closed connection
 			if (messageSize == 0)
