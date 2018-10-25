@@ -52,9 +52,9 @@ You can either install from scratch or download pre-built VMs from my Google Dri
 
 1. Download VMs:
 
-PLC VM (MD5 checksum 1ac605177bb81a64b500a8a203edfbe6):
+PLC VM (MD5 checksum ad121c6afad99784f7178eb8b98f9853):
 
-https://drive.google.com/open?id=1M3yRafNxwBEkDcTw-53tJ32U1BTV0RMt
+https://drive.google.com/open?id=1lktm8odvJmWowOYUq5VwzLTtKVwCb8yF
 
 Simulation VM (MD5 checksum e59b65222d9da143fe13118635caa1d5):
 
