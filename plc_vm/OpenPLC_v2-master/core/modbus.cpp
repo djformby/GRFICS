@@ -289,12 +289,12 @@ void ReadHoldingRegisters(unsigned char *buffer, int bufferSize)
 	WordDataLength = word(buffer[10],buffer[11]);
 	ByteDataLength = WordDataLength * 2;
 
-	//asked for too many registers
-	if (ByteDataLength > 255)
-	{
-		ModbusError(buffer, ERR_ILLEGAL_DATA_ADDRESS);
-		return;
-	}
+	//asked for too many registers *** REMOVED TO ADD BUFFER OVERFLOW VULNERABILITY
+	//if (ByteDataLength > 255)
+	//{
+	//	ModbusError(buffer, ERR_ILLEGAL_DATA_ADDRESS);
+	//	return;
+	//}
 
 	//preparing response
 	buffer[4] = highByte(ByteDataLength + 3);
