@@ -35,7 +35,7 @@ from twisted.internet.task import LoopingCall
 # define network
 # --------------------------------------------------------------------------- #
 
-feed1_ip_address = "192.168.95.11"
+feed2_ip_address = "192.168.95.11"
 modbusTCP_port = 502
 
 # --------------------------------------------------------------------------- #
@@ -104,7 +104,7 @@ def run_update_server():
     time = 1  # 5 seconds delay
     loop = LoopingCall(f=updating_writer, a=(context,sock))
     loop.start(time, now=False)  # initially delay by time
-    StartTcpServer(context, identity=identity, address=(feed1_ip_address, modbusTCP_port))
+    StartTcpServer(context, identity=identity, address=(feed2_ip_address, modbusTCP_port))
 
 
 if __name__ == "__main__":
