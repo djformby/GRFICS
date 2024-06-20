@@ -11,7 +11,7 @@ Formby, D., Rad, M., and Beyah, R. Lowering the Barriers to Industrial Control S
 
 ### Overview
 
-The current version of GRFICS is organized as 3 VirtualBox VMs (a 3D simulation, a soft PLC, and an HMI) communicating with each other on a host-only virtual network. For a more detailed explanation of the entire framework and some background information on ICS networks, please refer to the workshop paper located at https://www.usenix.org/conference/ase18/presentation/formby
+this version of GRFICS is organized as 3 VMs (a 3D simulation, a soft PLC, and an HMI) communicating with each other on a host-only virtual network. For a more detailed explanation of the entire framework and some background information on ICS networks, please refer to the workshop paper located at https://www.usenix.org/conference/ase18/presentation/formby
 
 A commercial version of GRFICS with more scenarios, advanced features, and streamlined usability is being developed by Fortiphyd Logic. Find out more at https://www.fortiphyd.com/training
 
@@ -26,7 +26,7 @@ The PLC VM is a modified version of OpenPLC (https://github.com/thiagoralves/Ope
 
 ### Human Machine Interface
 
-The HMI VM primarily contains an operator HMI created using the free AdvancedHMI (https://www.advancedhmi.com) software. This HMI is used to monitor the process measurements being collected by the PLC and send commands to the PLC. NOTE: start/stop buttons and flow rate input have been removed temporarily because even benign user behavior would blow up the reactor. I am working to fix this.
+The HMI VM primarily contains an operator HMI created using the free AdvancedHMI (https://www.advancedhmi.com) software. This HMI is used to monitor the process measurements being collected by the PLC and send commands to the PLC. 
 ![hmi](figures/hmi.png)
 
 In addition to the HMI, this VM also contains the PLCOpenEditor software used to reprogram the OpenPLC.
@@ -47,7 +47,7 @@ You can either install from scratch or download pre-built VMs from my Google Dri
 
 1. Download and install the latest version of VirtualBox from https://www.virtualbox.org/wiki/Downloads
 
-2. Create a host-only interface in VirtualBox (https://www.virtualbox.org/manual/ch06.html#network_hostonly)
+2. Create a host-only interface in VirtualBox with IP address 192.168.95.1 and 255.255.255.0 netmask (https://www.virtualbox.org/manual/ch06.html#network_hostonly)
 
 3. Download an image for both the desktop and server versions of 64-bit Ubuntu 16.04 from http://releases.ubuntu.com/16.04/
 
@@ -55,33 +55,7 @@ You can either install from scratch or download pre-built VMs from my Google Dri
 
 #### Pre-built VMs
 
-1. Download VMs:
-
-PLC VM (MD5 checksum ad121c6afad99784f7178eb8b98f9853):
-
-https://drive.google.com/open?id=1lktm8odvJmWowOYUq5VwzLTtKVwCb8yF
-
-Simulation VM (MD5 checksum e59b65222d9da143fe13118635caa1d5):
-
-https://drive.google.com/open?id=1ZN7u_WPUGHsEeos09NITpLImbeU9LKpI
-
-HMI VM (MD5 checksum 6c27e87c742d75580c1bd05119e0d348):
-
-https://drive.google.com/open?id=1MJpiA-yt89xgTCYVJocddhE4_OUvvWG4
-
-2. Add a host-only adapter in VirtualBox with IP address 192.168.95.1 and 255.255.255.0 netmask (https://www.virtualbox.org/manual/ch06.html#network_hostonly)
-
-3. Import each VM into VirtualBox using File->Import Appliance
-
-4. Every VM can be logged into with username "user" and password "password"
-
-5. Log into the simulation VM and open 2 terminals. In one, cd into the "HMI_Simulation_Ubuntu1604_15_x86_64" directory and run "sudo ./HMI_Simulation_Ubuntu1604_15_x86_64.x86_64". 
-Enter "/home/user/simulation/simulation" for the path to the simulation code, click "Run Server" and then click "Start". 
-In the second terminal, cd into the simulation/remote_io directory and run "sudo bash run_all.sh"
-
-6. Log into plc VM, cd into the OpenPLC_v2 directory, and run "sudo nodejs server.js"
-
-7. Log into hmi VM, cd into the HMI directory, and run "wine HMI/AdvancedHMI.exe"
+Unfortunately my personal Google Drive was getting full and I can no longer host the full VMs on it.
 
 
 ### Copyright and Licensing Description
