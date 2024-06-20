@@ -13,14 +13,21 @@ of nodes which can be helpful for testing monitoring software.
 # --------------------------------------------------------------------------- # 
 # import the various server implementations
 # --------------------------------------------------------------------------- # 
-from pymodbus.server.async import StartTcpServer
-from pymodbus.server.async import StartUdpServer
-from pymodbus.server.async import StartSerialServer
+from pymodbus.server.asynchronous import StartTcpServer
+from pymodbus.server.asynchronous import StartUdpServer
+from pymodbus.server.asynchronous import StartSerialServer
 
 from pymodbus.device import ModbusDeviceIdentification
 from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from pymodbus.transaction import ModbusRtuFramer, ModbusAsciiFramer
+
+# --------------------------------------------------------------------------- #
+# define network
+# --------------------------------------------------------------------------- #
+
+Remote_IO_ip_address = "192.168.95.10"
+modbusTCP_port = 502
 
 # --------------------------------------------------------------------------- # 
 # configure the service logging
@@ -58,7 +65,7 @@ def run_async_server():
     # run the server you want
     # ----------------------------------------------------------------------- # 
     
-    StartTcpServer(context_feed1, identity=identity_feed1, address=("192.168.95.10", 502))
+    StartTcpServer(context_feed1, identity=identity_feed1, address=(Remote_IO_ip_address, modbusTCP_port))
 
 
 if __name__ == "__main__":

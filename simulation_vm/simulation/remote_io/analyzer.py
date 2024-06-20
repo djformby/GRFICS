@@ -18,7 +18,7 @@ import json
 # --------------------------------------------------------------------------- #
 # import the modbus libraries we need
 # --------------------------------------------------------------------------- #
-from pymodbus.server.async import StartTcpServer
+from pymodbus.server.asynchronous import StartTcpServer
 from pymodbus.device import ModbusDeviceIdentification
 from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.datastore import ModbusServerContext, ModbusSlaveContext
@@ -38,6 +38,11 @@ logging.basicConfig()
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
 
+# --------------------------------------------------------------------------- #
+# define network
+# --------------------------------------------------------------------------- #
+analyzer_ip_address = "192.168.95.15"
+modbusTCP_port = 502
 # --------------------------------------------------------------------------- #
 # define your callback process
 # --------------------------------------------------------------------------- #
@@ -101,7 +106,7 @@ def run_update_server():
     time = 1  # 5 seconds delay
     loop = LoopingCall(f=updating_writer, a=(context,sock))
     loop.start(time, now=False)  # initially delay by time
-    StartTcpServer(context, identity=identity, address=("192.168.95.15", 502))
+    StartTcpServer(context, identity=identity, address=(analyzer_ip_address, modbusTCP_port))
 
 
 if __name__ == "__main__":
